@@ -1,0 +1,32 @@
+﻿[
+  {
+    "Name": "MainApp.showMainFormOnStartup",
+    "ValueTypeName": "System.Boolean",
+    "Value": "True",
+    "Description": "Show main window on application startup",
+    "IsUser": true
+  },
+  {
+    "Name": "Vpn.Reconnect",
+    "ValueTypeName": "System.Boolean",
+    "Value": "False",
+    "Description": "Reconnect to VPN",
+    "Group": "VPN",
+    "Help": "Reconnect to current VPN server when connection lost",
+    "IsUser": true
+  },
+  {
+    "Name": "RunAppInWindowsTray",
+    "ValueTypeName": "System.Boolean",
+    "Value": "True",
+    "Description": "Run application in windows system tray (next run)",
+    "IsUser": true
+  },
+  {
+    "Name": "MainApp.DefaultProxyServer",
+    "ValueTypeName": "Dionext.FProxyServer",
+    "Description": "VPN server by default",
+    "Group": "VPN",
+    "IsUser": true
+  }
+]

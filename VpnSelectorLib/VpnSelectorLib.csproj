@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BA5D89B1-F184-4B1F-A84B-4F1ACA1DB3AD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dionext</RootNamespace>
+    <AssemblyName>VpnSelectorLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotRas, Version=1.3.5166.33434, Culture=neutral, PublicKeyToken=b378f04384b7892a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DotRas.for.Win7.1.3.0\lib\net40\DotRas.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.8.5.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\HtmlAgilityPack.1.8.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ObjectListView, Version=2.9.1.25410, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ObjectListView.Official.2.9.2-alpha2\lib\net20\ObjectListView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=3.0.4.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DockPanelSuite.3.0.4\lib\net40\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="JIPAddressInfo.cs" />
+    <Compile Include="BaseVpnSelectorAppForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseVpnSelectorAppForm.Designer.cs">
+      <DependentUpon>BaseVpnSelectorAppForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListViewImpl\JProxyServerListWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ListViewImpl\JProxyServerListWindow.Designer.cs">
+      <DependentUpon>JProxyServerListWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Base\BaseProxyServer.cs" />
+    <Compile Include="Model\Base\BaseProxyProvider.cs" />
+    <Compile Include="Model\FProxyProvider.cs" />
+    <Compile Include="Model\FProxyServer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VpnSelectorDm.cs" />
+    <Compile Include="VpnSelectorLibLoader.cs" />
+    <Compile Include="VpnSelectorLibRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VpnSelectorLibRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="VpnSelectorLibRes.ru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VpnSelectorLibRes.ru.resx</DependentUpon>
+    </Compile>
+    <Compile Include="VPN\NetConnUtils.cs" />
+    <Compile Include="VPN\VpngateImporter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SimpleWinCRUD\FrwSimpleJsonORM\FrwSimpleJsonORM.csproj">
+      <Project>{0a396f66-2b49-4fc6-80e3-2158b9bcc481}</Project>
+      <Name>FrwSimpleJsonORM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SimpleWinCRUD\FrwSimpleWinCRUD\FrwSimpleWinCRUD.csproj">
+      <Project>{dde15dde-672e-4dd2-9336-0bfb6ba02b89}</Project>
+      <Name>FrwSimpleWinCRUD</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BaseVpnSelectorAppForm.resx">
+      <DependentUpon>BaseVpnSelectorAppForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VpnSelectorLibRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>VpnSelectorLibRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VpnSelectorLibRes.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>VpnSelectorLibRes.ru.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\network_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\network_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\vpn_off.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\vpn_on.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\network1_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\network1_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\network_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\network_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\yellow.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

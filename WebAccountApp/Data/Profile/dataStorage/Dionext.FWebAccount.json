@@ -1,0 +1,16 @@
+﻿[
+  {
+    "JAccountId": "1",
+    "Login": "piter",
+    "JWeb": {
+      "JWebId": "2"
+    }
+  },
+  {
+    "JAccountId": "2",
+    "Login": "julia",
+    "JWeb": {
+      "JWebId": "2"
+    }
+  }
+]

@@ -1,0 +1,24 @@
+﻿[
+  {
+    "Name": "Vpn.Reconnect",
+    "ValueTypeName": "System.Boolean",
+    "Value": "True",
+    "Description": "Reconnect to VPN",
+    "Group": "VPN",
+    "Help": "Reconnect to current VPN server when connection lost",
+    "IsUser": true
+  },
+  {
+    "Name": "MainApp.DefaultProxyServer",
+    "ValueTypeName": "System.String",
+    "Description": "VPN server by default",
+    "Group": "VPN",
+    "IsUser": true
+  },
+  {
+    "Name": "MainApp.userAgent",
+    "ValueTypeName": "FrwSoftware.JUserAgent",
+    "Description": "User Agent",
+    "IsUser": true
+  }
+]

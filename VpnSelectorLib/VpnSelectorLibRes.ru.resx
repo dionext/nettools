@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="A_connection_has_successfully_connected_" xml:space="preserve">
+    <value>Соединение с VPN сервером успешно установлено </value>
+  </data>
+  <data name="A_connection_has_disconnected_successfully_" xml:space="preserve">
+    <value>Соединение с VPN сервером успешно разорвано</value>
+  </data>
+  <data name="VPN_disconnected" xml:space="preserve">
+    <value>VPN отключен</value>
+  </data>
+  <data name="Error_Get_IP" xml:space="preserve">
+    <value>Ошибка получаения IP адреса</value>
+  </data>
+  <data name="VPN_dialer_failed__" xml:space="preserve">
+    <value>Ошибка подключения к VPN: </value>
+  </data>
+  <data name="Warrning" xml:space="preserve">
+    <value>Предупреждение</value>
+  </data>
+  <data name="Reconnect_to_VPN" xml:space="preserve">
+    <value>Восстанавливать подключение к VPN</value>
+  </data>
+  <data name="Reconnect_to_current_VPN_server_when_connection_lost" xml:space="preserve">
+    <value>Восстанавливать подключение к VPN при потере соединения</value>
+  </data>
+  <data name="VPN_server_by_default" xml:space="preserve">
+    <value>VPN сервер по умолчанию</value>
+  </data>
+  <data name="User_Phonebook_path__" xml:space="preserve">
+    <value>Путь к телефонной книге данного пользователя:</value>
+  </data>
+  <data name="Name__" xml:space="preserve">
+    <value>Наименование: </value>
+  </data>
+  <data name="_Server__" xml:space="preserve">
+    <value> Сервер: </value>
+  </data>
+  <data name="All_User_Phonebook_path__" xml:space="preserve">
+    <value>Путь к телефонной книге всех пользователей: </value>
+  </data>
+  <data name="Active_Connection_list" xml:space="preserve">
+    <value>Список активных VPN соединений</value>
+  </data>
+  <data name="Connection__" xml:space="preserve">
+    <value>Соединение: </value>
+  </data>
+  <data name="IP__" xml:space="preserve">
+    <value>IP: </value>
+  </data>
+  <data name="Server_IP_Address__" xml:space="preserve">
+    <value>IP адрес сервера: </value>
+  </data>
+  <data name="Deafault_connection" xml:space="preserve">
+    <value>VPN соединение по умолчанию</value>
+  </data>
+  <data name="Favorit_connections" xml:space="preserve">
+    <value>Избранные соединения</value>
+  </data>
+  <data name="Delete_all_VPN_entries" xml:space="preserve">
+    <value>Удалить все VPN записи</value>
+  </data>
+  <data name="Show_active_VPN_connection_info" xml:space="preserve">
+    <value>Показать информацио об активных VPN соединениях</value>
+  </data>
+  <data name="Show_created_VPN_entries_info" xml:space="preserve">
+    <value>Показать информацию об созданных записях VPN соединений</value>
+  </data>
+  <data name="Disconnect_from_active_VPN_connection" xml:space="preserve">
+    <value>Отключиться от активного VPN соединения</value>
+  </data>
+  <data name="Set_as_default_VPN_connection_" xml:space="preserve">
+    <value>Установить как VPN соединение по умолчанию </value>
+  </data>
+  <data name="Disonnect_from_VPN_server_" xml:space="preserve">
+    <value>Отключиться от VPN соединения	 </value>
+  </data>
+  <data name="Active_VPN_connection_found____" xml:space="preserve">
+    <value>Найдено активное VPN соединение.
+
+ </value>
+  </data>
+  <data name="__Press_OK_to_close_it_and_connect_to_selected_VPN_server_" xml:space="preserve">
+    <value>Нажмите OK закрыть его и подключиться к выбранному VPN серверу.</value>
+  </data>
+  <data name="Warning_" xml:space="preserve">
+    <value>Предупреждение!</value>
+  </data>
+  <data name="__created_" xml:space="preserve">
+    <value> (создано)</value>
+  </data>
+  <data name="Connect_to_VPN_server" xml:space="preserve">
+    <value>Соединиться с VPN сервером</value>
+  </data>
+  <data name="Create_VPN_entry_" xml:space="preserve">
+    <value>Создать запись для VPN подключения </value>
+  </data>
+  <data name="Non_PPTP_no_L2TP_protocols_available_for_this_vpn_entry" xml:space="preserve">
+    <value>Ни один из протоколов  PPTP или L2TP не определен для данной записи</value>
+  </data>
+  <data name="BaseProxyProvider" xml:space="preserve">
+    <value>VPN провайдер</value>
+  </data>
+  <data name="BaseProxyProvider_JProxyProviderId" xml:space="preserve">
+    <value>Идентификатор</value>
+  </data>
+  <data name="BaseProxyProvider_Name" xml:space="preserve">
+    <value>Наименование</value>
+  </data>
+  <data name="BaseProxyProvider_URL" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="BaseProxyProvider_Login" xml:space="preserve">
+    <value>Логин</value>
+  </data>
+  <data name="BaseProxyProvider_Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="BaseProxyProvider_VPNLogin" xml:space="preserve">
+    <value>VPN Логин</value>
+  </data>
+  <data name="BaseProxyProvider_VPNPassword" xml:space="preserve">
+    <value>VPN Пароль</value>
+  </data>
+  <data name="BaseProxyProvider_UserPresharedKey" xml:space="preserve">
+    <value>User Preshared Key</value>
+  </data>
+  <data name="BaseProxyProvider_SecLevel" xml:space="preserve">
+    <value>Уровень защиты</value>
+  </data>
+  <data name="BaseProxyProvider_Info" xml:space="preserve">
+    <value>Информация</value>
+  </data>
+  <data name="BaseProxyProvider_Attachments" xml:space="preserve">
+    <value>Прикрепленные документы</value>
+  </data>
+  <data name="BaseProxyServer" xml:space="preserve">
+    <value>VPN сервер</value>
+  </data>
+  <data name="BaseProxyServer_JProxyServerId" xml:space="preserve">
+    <value>Идентификатор</value>
+  </data>
+  <data name="BaseProxyServer_Url" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="BaseProxyServer_JCountry" xml:space="preserve">
+    <value>Страна</value>
+  </data>
+  <data name="BaseProxyServer_JCountryDeclared" xml:space="preserve">
+    <value>Страна (декларируемая)</value>
+  </data>
+  <data name="BaseProxyServer_Town" xml:space="preserve">
+    <value>Город</value>
+  </data>
+  <data name="BaseProxyServer_TownDeclared" xml:space="preserve">
+    <value>Город  (декларируемый)</value>
+  </data>
+  <data name="BaseProxyServer_AvailableProtocols" xml:space="preserve">
+    <value>Доступные для работы протоколы</value>
+  </data>
+  <data name="BaseProxyServer_EncryptionType" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BaseProxyServer_Favorite" xml:space="preserve">
+    <value>Избранное</value>
+  </data>
+  <data name="BaseProxyServer_ErrorCount" xml:space="preserve">
+    <value>Кол-во ошибкок при подключении</value>
+  </data>
+  <data name="BaseProxyServer_SuccessCount" xml:space="preserve">
+    <value>Кол-во успешных подключений</value>
+  </data>
+  <data name="BaseProxyServer_LastErrorDate" xml:space="preserve">
+    <value>Дата последней ошибки подключения</value>
+  </data>
+  <data name="BaseProxyServer_LastSuccessDate" xml:space="preserve">
+    <value>Дата последнего успешного подключения</value>
+  </data>
+  <data name="BaseProxyServer_IsArchive" xml:space="preserve">
+    <value>Архивный</value>
+  </data>
+  <data name="BaseProxyServer_Stage" xml:space="preserve">
+    <value>Стадия тестирования</value>
+  </data>
+  <data name="FProxyProvider_JProxyProvider" xml:space="preserve">
+    <value>VPN провайдер</value>
+  </data>
+  <data name="VPN_selector" xml:space="preserve">
+    <value>VPN селектор</value>
+  </data>
+  <data name="Service" xml:space="preserve">
+    <value>Служебное</value>
+  </data>
+  <data name="Application_settings" xml:space="preserve">
+    <value>Настройки приложения</value>
+  </data>
+  <data name="VPN" xml:space="preserve">
+    <value>VPN</value>
+  </data>
+  <data name="Import_VPN_servers_from_vpngate_net" xml:space="preserve">
+    <value>Импортировать VPN сервера с сайта vpngate.net</value>
+  </data>
+  <data name="Run_test" xml:space="preserve">
+    <value>Запустить тест</value>
+  </data>
+  <data name="Run_test_for_selected_VPN_servers" xml:space="preserve">
+    <value>Запустить тест для выделенных VPN серверов</value>
+  </data>
+  <data name="Run_test_for_this_VPN_server" xml:space="preserve">
+    <value>Запустить тест для этого VPN сервера</value>
+  </data>
+  <data name="Run_test_for_favorite_VPN_servers" xml:space="preserve">
+    <value>Запустить тест для избранных  VPN серверов</value>
+  </data>
+  <data name="Run_test_for_all_VPN_servers" xml:space="preserve">
+    <value>Запустить тест для всех VPN серверов</value>
+  </data>
+  <data name="Running_job_found__They_will_be_aborted_or_press__Cancel__to_exit" xml:space="preserve">
+    <value>Найдены работающие задания. Они будут закрыты или же нажмите  "Отмена" для отмены  операции</value>
+  </data>
+  <data name="Test_for_VPN_server" xml:space="preserve">
+    <value>Тест для VPN сервреа</value>
+  </data>
+  <data name="Double_click_on_this_icon_creates_VPN_connection_to_default_VPN_server_which_not_set__No_connection_created_" xml:space="preserve">
+    <value>Двойной клик по иконке создает и устанавливает VPN подключение к  VPN серверу, который определен для этого по умолчанию. В данный момент такой сервер не определен, поэтому соединение не будет установлено.</value>
+  </data>
+  <data name="Delete_VPN_entries__Press__Yes__to_delete_" xml:space="preserve">
+    <value>Удалить все VPN соединения? Нажмите "Да" для удаления.</value>
+  </data>
+  <data name="Run_application_in_windows_system_tray__next_run_" xml:space="preserve">
+    <value>Запускать приложение в системном трее (следующий запуск)</value>
+  </data>
+</root>

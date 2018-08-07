@@ -1,0 +1,50 @@
+﻿[
+  {
+    "JWebId": "1",
+    "Name": "Facebook",
+    "Url": "https://www.facebook.com/",
+    "JWebCategory": {
+      "JWebCategoryId": "1"
+    }
+  },
+  {
+    "JWebId": "2",
+    "Name": "Twitter",
+    "Url": "https://twitter.com/",
+    "JWebCategory": {
+      "JWebCategoryId": "1"
+    }
+  },
+  {
+    "JWebId": "4",
+    "Name": "booking.com",
+    "Url": "http://www.booking.com",
+    "JWebCategory": {
+      "JWebCategoryId": "2"
+    }
+  },
+  {
+    "JWebId": "5",
+    "Name": "Airbnb",
+    "Url": "https://www.airbnb.ru/",
+    "JWebCategory": {
+      "JWebCategoryId": "2"
+    }
+  },
+  {
+    "JWebId": "6",
+    "Name": "Austrian airlines",
+    "Url": "https://book.austrian.com",
+    "JWebCategory": {
+      "JWebCategoryId": "4"
+    }
+  },
+  {
+    "JWebId": "7",
+    "Name": "Germany railway",
+    "Url": "https://www.bahn.de/",
+    "JWebCategory": {
+      "JWebCategoryId": "5"
+    }
+  }
+]

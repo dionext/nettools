@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DockPanelContainers>
+  <ScreenSystem ScreenCount="1">
+    <DockPanelContainer Bounds="0, 0, 800, 600" Left="0" Top="0" Width="800" Height="600" WindowState="Normal" Type="Dionext.VpnSelectorMainForm" />
+  </ScreenSystem>
+</DockPanelContainers>

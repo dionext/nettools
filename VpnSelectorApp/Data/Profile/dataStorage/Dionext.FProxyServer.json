@@ -1,0 +1,100 @@
+﻿[
+  {
+    "JProxyProvider": {
+      "JProxyProviderId": "5"
+    },
+    "JProxyServerId": "205",
+    "Url": "shooran.opengw.net",
+    "JCountry": {
+      "JCountryId": "kr"
+    },
+    "AvailableProtocols": [
+      "L2TP"
+    ],
+    "EncryptionType": "Require"
+  },
+  {
+    "JProxyProvider": {
+      "JProxyProviderId": "5"
+    },
+    "JProxyServerId": "206",
+    "Url": "vpn101943292.opengw.net",
+    "JCountry": {
+      "JCountryId": "sg"
+    },
+    "AvailableProtocols": [
+      "L2TP"
+    ],
+    "EncryptionType": "Require"
+  },
+  {
+    "JProxyProvider": {
+      "JProxyProviderId": "5"
+    },
+    "JProxyServerId": "207",
+    "Url": "marimo-net.opengw.net",
+    "JCountry": {
+      "JCountryId": "jp"
+    },
+    "AvailableProtocols": [
+      "L2TP"
+    ],
+    "EncryptionType": "Require"
+  },
+  {
+    "JProxyProvider": {
+      "JProxyProviderId": "5"
+    },
+    "JProxyServerId": "208",
+    "Url": "vpn383965156.opengw.net",
+    "JCountry": {
+      "JCountryId": "us"
+    },
+    "AvailableProtocols": [
+      "L2TP"
+    ],
+    "EncryptionType": "Require"
+  },
+  {
+    "JProxyProvider": {
+      "JProxyProviderId": "5"
+    },
+    "JProxyServerId": "209",
+    "Url": "vpn959922015.opengw.net",
+    "JCountry": {
+      "JCountryId": "cn"
+    },
+    "AvailableProtocols": [
+      "L2TP"
+    ],
+    "EncryptionType": "Require"
+  },
+  {
+    "JProxyProvider": {
+      "JProxyProviderId": "5"
+    },
+    "JProxyServerId": "210",
+    "Url": "showh.opengw.net",
+    "JCountry": {
+      "JCountryId": "jp"
+    },
+    "AvailableProtocols": [
+      "L2TP"
+    ],
+    "EncryptionType": "Require"
+  },
+  {
+    "JProxyProvider": {
+      "JProxyProviderId": "5"
+    },
+    "JProxyServerId": "211",
+    "Url": "torment123.opengw.net",
+    "JCountry": {
+      "JCountryId": "cn"
+    },
+    "AvailableProtocols": [
+      "L2TP"
+    ],
+    "EncryptionType": "Require"
+  }
+]

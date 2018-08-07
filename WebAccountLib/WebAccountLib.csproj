@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3D68A794-058F-4F5D-9580-BC7FAE38021D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dionext</RootNamespace>
+    <AssemblyName>WebAccountLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppLocatorUtils.cs" />
+    <Compile Include="BrowserViewWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BrowserViewWindow.Designer.cs">
+      <DependentUpon>BrowserViewWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListViewImpl\FWebTreeWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ListViewImpl\FWebTreeWindow.Designer.cs">
+      <DependentUpon>FWebTreeWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Base\BaseWebAccount.cs" />
+    <Compile Include="Model\JWeb.cs" />
+    <Compile Include="Model\JWebCategory.cs" />
+    <Compile Include="PasswordUtils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebAccountDm.cs" />
+    <Compile Include="WebAccountLibAppManager.cs" />
+    <Compile Include="WebAccountLibLoader.cs" />
+    <Compile Include="WebAccountLibRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebAccountLibRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="WebAccountLibRes.ru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebAccountLibRes.ru.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SimpleWinCRUD\FrwSimpleJsonORM\FrwSimpleJsonORM.csproj">
+      <Project>{0a396f66-2b49-4fc6-80e3-2158b9bcc481}</Project>
+      <Name>FrwSimpleJsonORM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SimpleWinCRUD\FrwSimpleWinCRUD\FrwSimpleWinCRUD.csproj">
+      <Project>{dde15dde-672e-4dd2-9336-0bfb6ba02b89}</Project>
+      <Name>FrwSimpleWinCRUD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmbeddedBrowserControl\EmbeddedBrowserControl.csproj">
+      <Project>{be3ef27c-d753-4ff2-a80c-6e9fa17e5ae7}</Project>
+      <Name>EmbeddedBrowserControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VpnSelectorLib\VpnSelectorLib.csproj">
+      <Project>{ba5d89b1-f184-4b1f-a84b-4f1aca1db3ad}</Project>
+      <Name>VpnSelectorLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ListViewImpl\FWebTreeWindow.resx">
+      <DependentUpon>FWebTreeWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WebAccountLibRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>WebAccountLibRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WebAccountLibRes.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>WebAccountLibRes.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\fr_web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\fr_webaccount.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\fr_webfolder.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

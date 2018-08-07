@@ -1,0 +1,28 @@
+﻿[
+  {
+    "JWebCategoryId": "1",
+    "Name": "Social networks"
+  },
+  {
+    "JWebCategoryId": "2",
+    "Name": "Tourism"
+  },
+  {
+    "JWebCategoryId": "3",
+    "Name": "Transport"
+  },
+  {
+    "JWebCategoryId": "4",
+    "Name": "Air",
+    "Parent": {
+      "JWebCategoryId": "3"
+    }
+  },
+  {
+    "JWebCategoryId": "5",
+    "Name": "Railway",
+    "Parent": {
+      "JWebCategoryId": "3"
+    }
+  }
+]
