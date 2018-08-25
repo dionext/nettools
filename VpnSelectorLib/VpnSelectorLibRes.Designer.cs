@@ -396,6 +396,15 @@ namespace Dionext {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check IP address on startup.
+        /// </summary>
+        public static string Check_IP_address_on_startup {
+            get {
+                return ResourceManager.GetString("Check_IP_address_on_startup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Connect to VPN server.
         /// </summary>
         public static string Connect_to_VPN_server {

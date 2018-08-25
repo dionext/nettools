@@ -106,7 +106,10 @@ namespace Dionext
             }
             else
             {
-                NetConnUtils.ConfirmIpAddressAsync();
+                if ((bool)FrwConfig.Instance.GetPropertyValue(NetConnUtils.SETTING_CHECK_IP_ON_STARTUP, true) == true)
+                {
+                    NetConnUtils.ConfirmIpAddressAsync();
+                }
             }
         }
 

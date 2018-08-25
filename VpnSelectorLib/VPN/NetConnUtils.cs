@@ -65,6 +65,7 @@ namespace Dionext
         public static VpnDisconnectedEventHandler VpnDisconnectedEvent = null;
         public static VpnDialerErrorEventHandler VpnDialerErrorEvent = null;
         static public string DEFAULT_JPROXY_SERVER = "MainApp.DefaultProxyServer";
+        static public string SETTING_CHECK_IP_ON_STARTUP = "Vpn.CheckIPOnStarup";
         static public BaseProxyServer BaseProxyServerDefault = null;
         static private RasConnectionWatcher watcher = new RasConnectionWatcher();// for the watcher to run all the events it must be run when the application is loaded
 
@@ -91,6 +92,14 @@ namespace Dionext
                 Group = "VPN",
                 Value = null,
                 ValueType = BaseProxyServer.CurrentType,
+                IsUser = true
+            });
+            setting = FrwConfig.Instance.CreatePropertyIfNotExist(new JSetting()
+            {
+                Name = NetConnUtils.SETTING_CHECK_IP_ON_STARTUP,
+                Description = VpnSelectorLibRes.Check_IP_address_on_startup,
+                Group = "VPN",
+                Value = true,
                 IsUser = true
             });
 

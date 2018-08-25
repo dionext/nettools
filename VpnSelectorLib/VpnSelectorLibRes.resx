@@ -366,4 +366,7 @@
   <data name="Run_application_in_windows_system_tray__next_run_" xml:space="preserve">
     <value>Run application in windows system tray (next run)</value>
   </data>
+  <data name="Check_IP_address_on_startup" xml:space="preserve">
+    <value>Check IP address on startup</value>
+  </data>
 </root>

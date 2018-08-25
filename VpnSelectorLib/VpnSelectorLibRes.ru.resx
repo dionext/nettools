@@ -347,4 +347,7 @@
   <data name="Run_application_in_windows_system_tray__next_run_" xml:space="preserve">
     <value>Запускать приложение в системном трее (следующий запуск)</value>
   </data>
+  <data name="Check_IP_address_on_startup" xml:space="preserve">
+    <value>Определять IP адрес сети и его параметиры при старте приложения</value>
+  </data>
 </root>
