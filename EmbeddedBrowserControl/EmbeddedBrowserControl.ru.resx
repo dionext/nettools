@@ -119,141 +119,169 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="newTabToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>345, 26</value>
+    <value>491, 40</value>
   </data>
   <data name="newTabToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Новая вкладка</value>
   </data>
   <data name="closeTabToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>345, 26</value>
+    <value>491, 40</value>
   </data>
   <data name="closeTabToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Закрыть вкладку</value>
   </data>
   <data name="printToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>345, 26</value>
+    <value>491, 40</value>
   </data>
   <data name="printToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Печать</value>
   </data>
   <data name="printToPdfToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>345, 26</value>
+    <value>491, 40</value>
   </data>
   <data name="printToPdfToolStripMenuItem.Text" xml:space="preserve">
     <value>Печать в PDF</value>
   </data>
   <data name="showDevToolsMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>345, 26</value>
+    <value>491, 40</value>
   </data>
   <data name="showDevToolsMenuItem.Text" xml:space="preserve">
     <value>Показать инструменты разработчика</value>
   </data>
   <data name="closeDevToolsMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>345, 26</value>
+    <value>491, 40</value>
   </data>
   <data name="closeDevToolsMenuItem.Text" xml:space="preserve">
     <value>Скрыть инструменты разработчика</value>
   </data>
   <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 24</value>
+    <value>80, 34</value>
   </data>
   <data name="fileToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Файл</value>
   </data>
   <data name="undoMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 26</value>
+    <value>545, 40</value>
   </data>
   <data name="undoMenuItem.Text" xml:space="preserve">
     <value>Отмена</value>
   </data>
   <data name="redoMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 26</value>
+    <value>545, 40</value>
   </data>
   <data name="redoMenuItem.Text" xml:space="preserve">
     <value>Возврат</value>
   </data>
   <data name="findMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 26</value>
+    <value>545, 40</value>
   </data>
   <data name="findMenuItem.Text" xml:space="preserve">
     <value>Поиск</value>
   </data>
   <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>382, 6</value>
+    <value>542, 6</value>
   </data>
   <data name="cutMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 26</value>
+    <value>545, 40</value>
   </data>
   <data name="cutMenuItem.Text" xml:space="preserve">
     <value>Вырезать</value>
   </data>
   <data name="copyMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 26</value>
+    <value>545, 40</value>
   </data>
   <data name="copyMenuItem.Text" xml:space="preserve">
     <value>Копировать</value>
   </data>
   <data name="pasteMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 26</value>
+    <value>545, 40</value>
   </data>
   <data name="pasteMenuItem.Text" xml:space="preserve">
     <value>Вставить</value>
   </data>
   <data name="deleteMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 26</value>
+    <value>545, 40</value>
   </data>
   <data name="deleteMenuItem.Text" xml:space="preserve">
     <value>Удалить</value>
   </data>
   <data name="selectAllMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 26</value>
+    <value>545, 40</value>
   </data>
   <data name="selectAllMenuItem.Text" xml:space="preserve">
     <value>Выделить все</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>382, 6</value>
+    <value>542, 6</value>
   </data>
   <data name="copySourceToClipBoardAsyncMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 26</value>
+    <value>545, 40</value>
   </data>
   <data name="copySourceToClipBoardAsyncMenuItem.Text" xml:space="preserve">
     <value>Копировть код страницы в буфер (асинхр.)</value>
   </data>
   <data name="editToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 24</value>
+    <value>101, 34</value>
   </data>
   <data name="editToolStripMenuItem.Text" xml:space="preserve">
     <value>Правка</value>
   </data>
   <data name="zoomInToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>290, 26</value>
+    <value>417, 40</value>
   </data>
   <data name="zoomInToolStripMenuItem.Text" xml:space="preserve">
     <value>Увеличить масштаб</value>
   </data>
   <data name="zoomOutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>290, 26</value>
+    <value>417, 40</value>
   </data>
   <data name="zoomOutToolStripMenuItem.Text" xml:space="preserve">
     <value>Уменьшить масштаб</value>
   </data>
   <data name="deleteCurrentCookiesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>290, 26</value>
+    <value>417, 40</value>
   </data>
   <data name="deleteCurrentCookiesToolStripMenuItem.Text" xml:space="preserve">
     <value>Очистить текущие cookies</value>
   </data>
   <data name="deleteGlobalCookiesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>290, 26</value>
+    <value>417, 40</value>
   </data>
   <data name="deleteGlobalCookiesToolStripMenuItem.Text" xml:space="preserve">
     <value>Очистить глобальные cookies</value>
   </data>
+  <data name="показатьCookieToolStripMenuItem.Text" xml:space="preserve">
+    <value>Показать cookie</value>
+  </data>
   <data name="viewToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 24</value>
+    <value>66, 34</value>
   </data>
   <data name="viewToolStripMenuItem.Text" xml:space="preserve">
     <value>Вид</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>11, 3, 0, 3</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1338, 40</value>
+  </data>
+  <data name="browserTabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 40</value>
+  </data>
+  <data name="browserTabControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 6, 6, 6</value>
+  </data>
+  <data name="browserTabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1338, 864</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>11, 24</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 6, 6, 6</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1338, 904</value>
   </data>
 </root>

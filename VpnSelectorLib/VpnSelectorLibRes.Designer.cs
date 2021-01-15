@@ -19,7 +19,7 @@ namespace Dionext {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class VpnSelectorLibRes {
@@ -71,7 +71,8 @@ namespace Dionext {
         
         /// <summary>
         ///   Looks up a localized string similar to 
-        ///        ///Press OK to close it and connect to selected VPN server..
+        ///
+        ///Press OK to close it and connect to selected VPN server..
         /// </summary>
         public static string @__Press_OK_to_close_it_and_connect_to_selected_VPN_server_ {
             get {
@@ -117,7 +118,8 @@ namespace Dionext {
         
         /// <summary>
         ///   Looks up a localized string similar to Active VPN connection found.
-        ///        /// .
+        ///
+        /// .
         /// </summary>
         public static string Active_VPN_connection_found____ {
             get {
@@ -146,252 +148,252 @@ namespace Dionext {
         /// <summary>
         ///   Looks up a localized string similar to VPN provider.
         /// </summary>
-        public static string BaseProxyProvider {
+        public static string BaseVPNProvider {
             get {
-                return ResourceManager.GetString("BaseProxyProvider", resourceCulture);
+                return ResourceManager.GetString("BaseVPNProvider", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Attachments.
         /// </summary>
-        public static string BaseProxyProvider_Attachments {
+        public static string BaseVPNProvider_Attachments {
             get {
-                return ResourceManager.GetString("BaseProxyProvider_Attachments", resourceCulture);
+                return ResourceManager.GetString("BaseVPNProvider_Attachments", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Information.
         /// </summary>
-        public static string BaseProxyProvider_Info {
+        public static string BaseVPNProvider_Info {
             get {
-                return ResourceManager.GetString("BaseProxyProvider_Info", resourceCulture);
+                return ResourceManager.GetString("BaseVPNProvider_Info", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Identifier.
         /// </summary>
-        public static string BaseProxyProvider_JProxyProviderId {
+        public static string BaseVPNProvider_JVPNProviderId {
             get {
-                return ResourceManager.GetString("BaseProxyProvider_JProxyProviderId", resourceCulture);
+                return ResourceManager.GetString("BaseVPNProvider_JVPNProviderId", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login.
+        ///   Looks up a localized string similar to Login. For access to provider web site..
         /// </summary>
-        public static string BaseProxyProvider_Login {
+        public static string BaseVPNProvider_Login {
             get {
-                return ResourceManager.GetString("BaseProxyProvider_Login", resourceCulture);
+                return ResourceManager.GetString("BaseVPNProvider_Login", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
-        public static string BaseProxyProvider_Name {
+        public static string BaseVPNProvider_Name {
             get {
-                return ResourceManager.GetString("BaseProxyProvider_Name", resourceCulture);
+                return ResourceManager.GetString("BaseVPNProvider_Name", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password.
+        ///   Looks up a localized string similar to Password. For access to provider web site..
         /// </summary>
-        public static string BaseProxyProvider_Password {
+        public static string BaseVPNProvider_Password {
             get {
-                return ResourceManager.GetString("BaseProxyProvider_Password", resourceCulture);
+                return ResourceManager.GetString("BaseVPNProvider_Password", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Security level.
         /// </summary>
-        public static string BaseProxyProvider_SecLevel {
+        public static string BaseVPNProvider_SecLevel {
             get {
-                return ResourceManager.GetString("BaseProxyProvider_SecLevel", resourceCulture);
+                return ResourceManager.GetString("BaseVPNProvider_SecLevel", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to URL.
         /// </summary>
-        public static string BaseProxyProvider_URL {
+        public static string BaseVPNProvider_URL {
             get {
-                return ResourceManager.GetString("BaseProxyProvider_URL", resourceCulture);
+                return ResourceManager.GetString("BaseVPNProvider_URL", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User Preshared Key.
+        ///   Looks up a localized string similar to PSK.  Pre-shared key.
         /// </summary>
-        public static string BaseProxyProvider_UserPresharedKey {
+        public static string BaseVPNProvider_UserPresharedKey {
             get {
-                return ResourceManager.GetString("BaseProxyProvider_UserPresharedKey", resourceCulture);
+                return ResourceManager.GetString("BaseVPNProvider_UserPresharedKey", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VPN login.
+        ///   Looks up a localized string similar to VPN login. For VPN connection.
         /// </summary>
-        public static string BaseProxyProvider_VPNLogin {
+        public static string BaseVPNProvider_VPNLogin {
             get {
-                return ResourceManager.GetString("BaseProxyProvider_VPNLogin", resourceCulture);
+                return ResourceManager.GetString("BaseVPNProvider_VPNLogin", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VPN password.
+        ///   Looks up a localized string similar to VPN password. For VPN connection.
         /// </summary>
-        public static string BaseProxyProvider_VPNPassword {
+        public static string BaseVPNProvider_VPNPassword {
             get {
-                return ResourceManager.GetString("BaseProxyProvider_VPNPassword", resourceCulture);
+                return ResourceManager.GetString("BaseVPNProvider_VPNPassword", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to VPN server.
         /// </summary>
-        public static string BaseProxyServer {
+        public static string BaseVPNServer {
             get {
-                return ResourceManager.GetString("BaseProxyServer", resourceCulture);
+                return ResourceManager.GetString("BaseVPNServer", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Available protocols.
         /// </summary>
-        public static string BaseProxyServer_AvailableProtocols {
+        public static string BaseVPNServer_AvailableProtocols {
             get {
-                return ResourceManager.GetString("BaseProxyServer_AvailableProtocols", resourceCulture);
+                return ResourceManager.GetString("BaseVPNServer_AvailableProtocols", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Encryption Type.
         /// </summary>
-        public static string BaseProxyServer_EncryptionType {
+        public static string BaseVPNServer_EncryptionType {
             get {
-                return ResourceManager.GetString("BaseProxyServer_EncryptionType", resourceCulture);
+                return ResourceManager.GetString("BaseVPNServer_EncryptionType", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Error connections count.
         /// </summary>
-        public static string BaseProxyServer_ErrorCount {
+        public static string BaseVPNServer_ErrorCount {
             get {
-                return ResourceManager.GetString("BaseProxyServer_ErrorCount", resourceCulture);
+                return ResourceManager.GetString("BaseVPNServer_ErrorCount", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Favorite.
         /// </summary>
-        public static string BaseProxyServer_Favorite {
+        public static string BaseVPNServer_Favorite {
             get {
-                return ResourceManager.GetString("BaseProxyServer_Favorite", resourceCulture);
+                return ResourceManager.GetString("BaseVPNServer_Favorite", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Archived.
         /// </summary>
-        public static string BaseProxyServer_IsArchive {
+        public static string BaseVPNServer_IsArchived {
             get {
-                return ResourceManager.GetString("BaseProxyServer_IsArchive", resourceCulture);
+                return ResourceManager.GetString("BaseVPNServer_IsArchived", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Country.
         /// </summary>
-        public static string BaseProxyServer_JCountry {
+        public static string BaseVPNServer_JCountry {
             get {
-                return ResourceManager.GetString("BaseProxyServer_JCountry", resourceCulture);
+                return ResourceManager.GetString("BaseVPNServer_JCountry", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Country(declared).
         /// </summary>
-        public static string BaseProxyServer_JCountryDeclared {
+        public static string BaseVPNServer_JCountryDeclared {
             get {
-                return ResourceManager.GetString("BaseProxyServer_JCountryDeclared", resourceCulture);
+                return ResourceManager.GetString("BaseVPNServer_JCountryDeclared", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Identifier.
         /// </summary>
-        public static string BaseProxyServer_JProxyServerId {
+        public static string BaseVPNServer_JVPNServerId {
             get {
-                return ResourceManager.GetString("BaseProxyServer_JProxyServerId", resourceCulture);
+                return ResourceManager.GetString("BaseVPNServer_JVPNServerId", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Last error connection date.
         /// </summary>
-        public static string BaseProxyServer_LastErrorDate {
+        public static string BaseVPNServer_LastErrorDate {
             get {
-                return ResourceManager.GetString("BaseProxyServer_LastErrorDate", resourceCulture);
+                return ResourceManager.GetString("BaseVPNServer_LastErrorDate", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Last success connection date.
         /// </summary>
-        public static string BaseProxyServer_LastSuccessDate {
+        public static string BaseVPNServer_LastSuccessDate {
             get {
-                return ResourceManager.GetString("BaseProxyServer_LastSuccessDate", resourceCulture);
+                return ResourceManager.GetString("BaseVPNServer_LastSuccessDate", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stage of testing job.
+        ///   Looks up a localized string similar to Testing stage. During user testing, this VPN connection shows its stage..
         /// </summary>
-        public static string BaseProxyServer_Stage {
+        public static string BaseVPNServer_Stage {
             get {
-                return ResourceManager.GetString("BaseProxyServer_Stage", resourceCulture);
+                return ResourceManager.GetString("BaseVPNServer_Stage", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Success connections count.
         /// </summary>
-        public static string BaseProxyServer_SuccessCount {
+        public static string BaseVPNServer_SuccessCount {
             get {
-                return ResourceManager.GetString("BaseProxyServer_SuccessCount", resourceCulture);
+                return ResourceManager.GetString("BaseVPNServer_SuccessCount", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Town.
         /// </summary>
-        public static string BaseProxyServer_Town {
+        public static string BaseVPNServer_Town {
             get {
-                return ResourceManager.GetString("BaseProxyServer_Town", resourceCulture);
+                return ResourceManager.GetString("BaseVPNServer_Town", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Town (declared).
         /// </summary>
-        public static string BaseProxyServer_TownDeclared {
+        public static string BaseVPNServer_TownDeclared {
             get {
-                return ResourceManager.GetString("BaseProxyServer_TownDeclared", resourceCulture);
+                return ResourceManager.GetString("BaseVPNServer_TownDeclared", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to URL.
         /// </summary>
-        public static string BaseProxyServer_Url {
+        public static string BaseVPNServer_Url {
             get {
-                return ResourceManager.GetString("BaseProxyServer_Url", resourceCulture);
+                return ResourceManager.GetString("BaseVPNServer_Url", resourceCulture);
             }
         }
         
@@ -507,9 +509,9 @@ namespace Dionext {
         /// <summary>
         ///   Looks up a localized string similar to VPN provider.
         /// </summary>
-        public static string FProxyProvider_JProxyProvider {
+        public static string FVPNProvider_JVPNProvider {
             get {
-                return ResourceManager.GetString("FProxyProvider_JProxyProvider", resourceCulture);
+                return ResourceManager.GetString("FVPNProvider_JVPNProvider", resourceCulture);
             }
         }
         

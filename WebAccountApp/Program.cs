@@ -33,7 +33,7 @@ namespace Dionext
         [STAThread]
         static void Main()
         {
-            MainAppUtils.AjustVideoSetting();
+            AppManager.AjustVideoSetting();
             try
             {
                 Form form = null;
@@ -41,7 +41,7 @@ namespace Dionext
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    if (!MainAppUtils.CheckForSingleInstance()) return;
+                    if (!AppManager.CheckForSingleInstance()) return;
                     //Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en");
                     log = Log.GetLogger();
                     //http://stackoverflow.com/questions/8137070/force-application-close-on-system-shutdown
@@ -50,13 +50,8 @@ namespace Dionext
                     //If you don't want to cancel the event, but just react to it appropriately, you should handle the SystemEvents.SessionEnded event instead.
                     Microsoft.Win32.SystemEvents.SessionEnded += SystemEvents_SessionEnded;
 
-                    //for testing, remove this lines in real app
-                    var culture = new CultureInfo("en-US");
-                    //CultureInfo.DefaultThreadCurrentCulture = culture;
-                    //CultureInfo.DefaultThreadCurrentUICulture = culture;
-
                     //create instances of manager classes 
-                    //FrwConfig.Instance = new WebAccountConfig();
+                    FrwConfig.Instance = new FrwSimpleWinCRUDConfig(); //WebAccountConfig();
                     Dm.Instance = new WebAccountDm();
                     AppManager.Instance = new WebAccountLibAppManager();
                     AppManager.Instance.MainAppFormType = typeof(WebAccountMainForm);
@@ -66,7 +61,7 @@ namespace Dionext
                     VpnSelectorLibLoader.Load();
                     WebAccountLibLoader.Load();
 
-                    MainAppUtils.InitAppPaths();
+                    AppManager.Instance.InitApplication();
 
                     JSetting setting = FrwConfig.Instance.CreatePropertyIfNotExist(new JSetting()
                     {
@@ -121,7 +116,7 @@ namespace Dionext
         {
             try
             {
-                MainAppUtils.DestroyApp();
+                AppManager.Instance.DestroyApp();
             }
             catch (Exception ex)
             {
@@ -151,7 +146,7 @@ namespace Dionext
             {
                 Log.ShowError(ex);
             }
-            MainAppUtils.DestroyApp();
+            AppManager.Instance.DestroyApp();
         }
     }
 }

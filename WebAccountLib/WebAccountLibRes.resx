@@ -147,7 +147,7 @@
   <data name="BaseWebAccount_Info" xml:space="preserve">
     <value>Information</value>
   </data>
-  <data name="BaseWebAccount_IsArchive" xml:space="preserve">
+  <data name="BaseWebAccount_IsArchived" xml:space="preserve">
     <value>Archived</value>
   </data>
   <data name="JWeb_JWeb" xml:space="preserve">
@@ -168,7 +168,7 @@
   <data name="JWeb_Info" xml:space="preserve">
     <value>Information</value>
   </data>
-  <data name="JWeb_IsArchive" xml:space="preserve">
+  <data name="JWeb_IsArchived" xml:space="preserve">
     <value>Archived</value>
   </data>
   <data name="JWeb_JWebCategory" xml:space="preserve">
@@ -192,9 +192,6 @@
   <data name="Generate_new_password" xml:space="preserve">
     <value>Generate new password</value>
   </data>
-  <data name="To_generate_new_password_press__Yes__" xml:space="preserve">
-    <value>To generate new password press "Yes" </value>
-  </data>
   <data name="Warning" xml:space="preserve">
     <value>Warning</value>
   </data>
@@ -217,13 +214,13 @@
     <value>MS Word</value>
   </data>
   <data name="__private_in_memory_cache_" xml:space="preserve">
-    <value> /private in memory cache/</value>
+    <value> /in memory cache/</value>
   </data>
   <data name="__private_persistent_cache_" xml:space="preserve">
-    <value> /private persistent cache/</value>
+    <value> /persistent entity cache/</value>
   </data>
   <data name="__private_persistent_cache__cleared__" xml:space="preserve">
-    <value> /private persistent cache (cleared)/</value>
+    <value> /persistent cache (cleared)/</value>
   </data>
   <data name="Path" xml:space="preserve">
     <value>Path</value>
@@ -300,5 +297,137 @@
   </data>
   <data name="Web_accounts_management" xml:space="preserve">
     <value>Web accounts management</value>
+  </data>
+  <data name="fr_actor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\fr_actor3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fr_mailaccount" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\fr_mailaccount3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fr_webaccount1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\fr_webaccount.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="__common_cache" xml:space="preserve">
+    <value>/persistent common cache/</value>
+  </data>
+  <data name="AllowedVPNServer" xml:space="preserve">
+    <value>Required VPN connection. It is filled in if for this entity it is recommended to go online through a specific VPN connection</value>
+  </data>
+  <data name="BaseWebAccount_AddJMoneyBankAcc" xml:space="preserve">
+    <value>Additional and old bank accounts</value>
+  </data>
+  <data name="BaseWebAccount_AppPassword" xml:space="preserve">
+    <value>App Password</value>
+  </data>
+  <data name="BaseWebAccount_ControlAns" xml:space="preserve">
+    <value>Control Answer</value>
+  </data>
+  <data name="BaseWebAccount_ControlQ" xml:space="preserve">
+    <value>Control Question</value>
+  </data>
+  <data name="BaseWebAccount_EntranceByOAuth" xml:space="preserve">
+    <value>Entrance with oAuth</value>
+  </data>
+  <data name="BaseWebAccount_Expired" xml:space="preserve">
+    <value>Sign of "expired". If the account is considered expired (due to lack of payment or lack of activity.</value>
+  </data>
+  <data name="BaseWebAccount_ExpiredPeriod" xml:space="preserve">
+    <value>Registration validity period. The period after which the account is expired (due to lack of payment or lack of activity).</value>
+  </data>
+  <data name="BaseWebAccount_JActor" xml:space="preserve">
+    <value>Actor</value>
+  </data>
+  <data name="BaseWebAccount_JMailAccount" xml:space="preserve">
+    <value>E-mail confirmation address</value>
+  </data>
+  <data name="BaseWebAccount_JMoneyBankAcc" xml:space="preserve">
+    <value>Bank account</value>
+  </data>
+  <data name="BaseWebAccount_JPhoneNumber" xml:space="preserve">
+    <value>Confirmation phone</value>
+  </data>
+  <data name="BaseWebAccount_LastRenewDate" xml:space="preserve">
+    <value>The date of the last confirmation of activity. Used to control the "expiration" of the account</value>
+  </data>
+  <data name="Click_OK_to_ignore_the_warning_and_continue_Click_Cancel_to_cancel" xml:space="preserve">
+    <value>Click "OK" to ignore the warning and continue. Click "Cancel" to cancel</value>
+  </data>
+  <data name="Click_Yes_to_connect_to_the_desired_VPN_server" xml:space="preserve">
+    <value>Click "Yes" to connect to the desired VPN server. Click "No" to ignore the warning and continue. Click "Cancel" to cancel.</value>
+  </data>
+  <data name="Current_VPN_connection_is_not_established" xml:space="preserve">
+    <value>Current VPN connection is not established.</value>
+  </data>
+  <data name="For_this_entity_you_need_access_to_the_Internet_through_a_specific_VPN" xml:space="preserve">
+    <value>For this entity, you need access to the Internet through a specific VPN connection.</value>
+  </data>
+  <data name="The_current_VPN_connection_does_not_match" xml:space="preserve">
+    <value>The current VPN connection does not match the one specified for this entity.</value>
+  </data>
+  <data name="This_VPN_connection_has_not_been_established" xml:space="preserve">
+    <value>This VPN connection has not been established and was not found among the possible connections.</value>
+  </data>
+  <data name="Clear_browser_cache_for_entity" xml:space="preserve">
+    <value>Clear browser cache for entity</value>
+  </data>
+  <data name="Clear_browser_cache_for_entity_actor" xml:space="preserve">
+    <value>Clear browser cache for entity actor</value>
+  </data>
+  <data name="Clear_common_browser_cache" xml:space="preserve">
+    <value>Clear common browser cache</value>
+  </data>
+  <data name="JPhoneNumber_JPhoneNumberId" xml:space="preserve">
+    <value>Identifier</value>
+  </data>
+  <data name="JPhoneNumber_Number" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="JPhoneNumber_JMobileOperator" xml:space="preserve">
+    <value>Mobile operator</value>
+  </data>
+  <data name="JPhoneNumber_Country" xml:space="preserve">
+    <value>Страна</value>
+  </data>
+  <data name="JPhoneNumber_Owner" xml:space="preserve">
+    <value>Owner</value>
+  </data>
+  <data name="JPhoneNumber_JActor" xml:space="preserve">
+    <value>Actor</value>
+  </data>
+  <data name="JPhoneNumber_Purpose" xml:space="preserve">
+    <value>Назначение</value>
+  </data>
+  <data name="JPhoneNumber_Balance" xml:space="preserve">
+    <value>Баланс</value>
+  </data>
+  <data name="JPhoneNumber_IsArchived" xml:space="preserve">
+    <value>Archived</value>
+  </data>
+  <data name="JPhoneNumber_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="JPhoneNumber_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="JPhoneNumber_Info" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="JPhoneNumber_Attachments" xml:space="preserve">
+    <value>Attachments</value>
+  </data>
+  <data name="JPhoneNumber_WebEntryInfo" xml:space="preserve">
+    <value>WebEntryInfo</value>
+  </data>
+  <data name="BaseWebAccount_OAuthWebAccount" xml:space="preserve">
+    <value>OAuth account. Third-party account that must be used to access this resource (via OAuth protocol)</value>
+  </data>
+  <data name="Finance" xml:space="preserve">
+    <value>Finance</value>
+  </data>
+  <data name="Mail_and_messangers" xml:space="preserve">
+    <value>Mail and messangers</value>
+  </data>
+  <data name="Phones" xml:space="preserve">
+    <value>Phones</value>
   </data>
 </root>

@@ -33,7 +33,7 @@ namespace Dionext
         [STAThread]
         static void Main()
         {
-            MainAppUtils.AjustVideoSetting();
+            AppManager.AjustVideoSetting();
             try
             {
                 Form form = null;
@@ -41,7 +41,7 @@ namespace Dionext
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    if (!MainAppUtils.CheckForSingleInstance()) return;
+                    if (!AppManager.CheckForSingleInstance()) return;
                     log = Log.GetLogger();
                     //http://stackoverflow.com/questions/8137070/force-application-close-on-system-shutdown
                     //SystemEvents can help you. The SessionEnding occurs when the user is trying to log off or shut down the system.
@@ -62,10 +62,8 @@ namespace Dionext
                     //force load dlls with entities
                     //...
                     VpnSelectorLibLoader.Load();
-                    //BaseProxyServer.CurrentType = typeof(FProxyServer);
-                    //BaseProxyProvider.CurrentType = typeof(FProxyProvider);
 
-                    MainAppUtils.InitAppPaths();
+                    AppManager.Instance.InitApplication();
 
                     JSetting setting = FrwConfig.Instance.CreatePropertyIfNotExist(new JSetting()
                     {
@@ -119,7 +117,7 @@ namespace Dionext
         {
             try
             {
-                MainAppUtils.DestroyApp();
+                AppManager.Instance.DestroyApp();
             }
             catch (Exception ex)
             {
@@ -148,7 +146,7 @@ namespace Dionext
             {
                 Log.ShowError(ex);
             }
-            MainAppUtils.DestroyApp();
+            AppManager.Instance.DestroyApp();
         }
     }
 }

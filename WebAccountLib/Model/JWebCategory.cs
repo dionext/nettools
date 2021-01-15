@@ -16,9 +16,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FrwSoftware;
+using Dionext;
 
-namespace Dionext
+
+namespace FrwSoftware
 {
     [JDisplayName(typeof(WebAccountLibRes), "JWebCategory_JWebCategory")]
     [JEntity(ImageName = "fr_webfolder", Resource = typeof(WebAccountLibRes))]
@@ -34,7 +35,6 @@ namespace Dionext
 
         [JDisplayName(typeof(WebAccountLibRes), "JWebCategory_SrcId")]
         public string SrcId { get; set; }
-
 
         [JDisplayName(typeof(WebAccountLibRes), "JWebCategory_Parent")]
         [JManyToOne]

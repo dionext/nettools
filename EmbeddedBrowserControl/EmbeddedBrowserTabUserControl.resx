@@ -125,6 +125,9 @@
     <value>Bottom</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="findTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
   <data name="findTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 27</value>
   </data>
@@ -132,7 +135,7 @@
     <value>Magenta</value>
   </data>
   <data name="findPreviousButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>40, 21</value>
   </data>
   <data name="findPreviousButton.Text" xml:space="preserve">
     <value>Find Previous</value>
@@ -141,7 +144,7 @@
     <value>Magenta</value>
   </data>
   <data name="findNextButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>40, 21</value>
   </data>
   <data name="findNextButton.Text" xml:space="preserve">
     <value>Find Next</value>
@@ -153,7 +156,7 @@
     <value>Magenta</value>
   </data>
   <data name="findCloseButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 24</value>
+    <value>40, 21</value>
   </data>
   <data name="findCloseButton.Text" xml:space="preserve">
     <value>X</value>
@@ -190,10 +193,10 @@
     <value>Bottom</value>
   </data>
   <data name="statusLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 456</value>
+    <value>0, 440</value>
   </data>
   <data name="statusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 17</value>
+    <value>0, 25</value>
   </data>
   <data name="statusLabel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -217,10 +220,10 @@
     <value>Bottom</value>
   </data>
   <data name="outputLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 473</value>
+    <value>0, 465</value>
   </data>
   <data name="outputLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 17</value>
+    <value>0, 25</value>
   </data>
   <data name="outputLabel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -247,7 +250,7 @@
     <value>Magenta</value>
   </data>
   <data name="backButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>40, 24</value>
   </data>
   <data name="backButton.Text" xml:space="preserve">
     <value>Back</value>
@@ -259,13 +262,16 @@
     <value>Magenta</value>
   </data>
   <data name="forwardButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>40, 24</value>
   </data>
   <data name="forwardButton.Text" xml:space="preserve">
     <value>Forward</value>
   </data>
   <data name="urlTextBox.AutoSize" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="urlTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
   </data>
   <data name="urlTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 25</value>
@@ -274,7 +280,7 @@
     <value>Magenta</value>
   </data>
   <data name="goButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>40, 24</value>
   </data>
   <data name="goButton.Text" xml:space="preserve">
     <value>Go</value>
@@ -283,7 +289,7 @@
     <value>Magenta</value>
   </data>
   <data name="zoomInButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>40, 24</value>
   </data>
   <data name="zoomInButton.Text" xml:space="preserve">
     <value>Zoom In</value>
@@ -292,7 +298,7 @@
     <value>Magenta</value>
   </data>
   <data name="zoomOutButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>40, 24</value>
   </data>
   <data name="zoomOutButton.Text" xml:space="preserve">
     <value>Zoom Out</value>
@@ -300,26 +306,26 @@
   <data name="loginButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
   <data name="loginButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="loginButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>40, 24</value>
   </data>
   <data name="loginButton.Text" xml:space="preserve">
     <value>Login</value>
@@ -328,7 +334,7 @@
     <value>Magenta</value>
   </data>
   <data name="passwordButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
+    <value>40, 24</value>
   </data>
   <data name="passwordButton.Text" xml:space="preserve">
     <value>Password</value>
@@ -340,7 +346,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>730, 27</value>
+    <value>730, 30</value>
   </data>
   <data name="toolStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -361,10 +367,10 @@
     <value>Fill</value>
   </data>
   <data name="browserPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 27</value>
+    <value>0, 30</value>
   </data>
   <data name="browserPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>730, 429</value>
+    <value>730, 410</value>
   </data>
   <data name="browserPanel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -393,17 +399,23 @@
   <data name="&gt;&gt;findTextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;findPreviousButton.Name" xml:space="preserve">
+    <value>findPreviousButton</value>
+  </data>
+  <data name="&gt;&gt;findPreviousButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;findNextButton.Name" xml:space="preserve">
+    <value>findNextButton</value>
+  </data>
+  <data name="&gt;&gt;findNextButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;findCloseButton.Name" xml:space="preserve">
     <value>findCloseButton</value>
   </data>
   <data name="&gt;&gt;findCloseButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;urlTextBox.Name" xml:space="preserve">
-    <value>urlTextBox</value>
-  </data>
-  <data name="&gt;&gt;urlTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;backButton.Name" xml:space="preserve">
     <value>backButton</value>
@@ -416,6 +428,12 @@
   </data>
   <data name="&gt;&gt;forwardButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;urlTextBox.Name" xml:space="preserve">
+    <value>urlTextBox</value>
+  </data>
+  <data name="&gt;&gt;urlTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;goButton.Name" xml:space="preserve">
     <value>goButton</value>
@@ -447,20 +465,8 @@
   <data name="&gt;&gt;passwordButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;findPreviousButton.Name" xml:space="preserve">
-    <value>findPreviousButton</value>
-  </data>
-  <data name="&gt;&gt;findPreviousButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;findNextButton.Name" xml:space="preserve">
-    <value>findNextButton</value>
-  </data>
-  <data name="&gt;&gt;findNextButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>CefBrowserTabUserControl</value>
+    <value>EmbeddedBrowserTabUserControl</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

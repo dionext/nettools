@@ -55,12 +55,14 @@
             this.deleteCurrentCookiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteGlobalCookiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.browserTabControl = new System.Windows.Forms.TabControl();
+            this.показатьCookieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -204,7 +206,8 @@
             this.zoomInToolStripMenuItem,
             this.zoomOutToolStripMenuItem,
             this.deleteCurrentCookiesToolStripMenuItem,
-            this.deleteGlobalCookiesToolStripMenuItem});
+            this.deleteGlobalCookiesToolStripMenuItem,
+            this.показатьCookieToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             // 
             // zoomInToolStripMenuItem
@@ -237,13 +240,19 @@
             this.browserTabControl.Name = "browserTabControl";
             this.browserTabControl.SelectedIndex = 0;
             // 
-            // CefBrowserControl
+            // показатьCookieToolStripMenuItem
+            // 
+            resources.ApplyResources(this.показатьCookieToolStripMenuItem, "показатьCookieToolStripMenuItem");
+            this.показатьCookieToolStripMenuItem.Name = "показатьCookieToolStripMenuItem";
+            this.показатьCookieToolStripMenuItem.Click += new System.EventHandler(this.ПоказатьCookieToolStripMenuItem_Click);
+            // 
+            // EmbeddedBrowserControl
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.browserTabControl);
             this.Controls.Add(this.menuStrip1);
-            this.Name = "CefBrowserControl";
+            this.Name = "EmbeddedBrowserControl";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -279,5 +288,6 @@
         private System.Windows.Forms.ToolStripMenuItem printToPdfToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteCurrentCookiesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteGlobalCookiesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem показатьCookieToolStripMenuItem;
     }
 }

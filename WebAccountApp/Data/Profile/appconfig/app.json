@@ -9,7 +9,7 @@
     "IsUser": true
   },
   {
-    "Name": "MainApp.DefaultProxyServer",
+    "Name": "MainApp.DefaultVPNServer",
     "ValueTypeName": "System.String",
     "Description": "VPN server by default",
     "Group": "VPN",

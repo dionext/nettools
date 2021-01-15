@@ -147,7 +147,7 @@
   <data name="BaseWebAccount_Info" xml:space="preserve">
     <value>Информация</value>
   </data>
-  <data name="BaseWebAccount_IsArchive" xml:space="preserve">
+  <data name="BaseWebAccount_IsArchived" xml:space="preserve">
     <value>Архивный</value>
   </data>
   <data name="JWeb_JWeb" xml:space="preserve">
@@ -168,7 +168,7 @@
   <data name="JWeb_Info" xml:space="preserve">
     <value>Информация</value>
   </data>
-  <data name="JWeb_IsArchive" xml:space="preserve">
+  <data name="JWeb_IsArchived" xml:space="preserve">
     <value>Архивный</value>
   </data>
   <data name="JWeb_JWebCategory" xml:space="preserve">
@@ -188,9 +188,6 @@
   </data>
   <data name="JWebCategory_Parent" xml:space="preserve">
     <value>Родительская категория</value>
-  </data>
-  <data name="Generate_new_password" xml:space="preserve">
-    <value>Сгенерировать новый пароль</value>
   </data>
   <data name="To_generate_new_password_press__Yes__" xml:space="preserve">
     <value>Чтобы сгенерировать новый пароль нажните "Да"</value>
@@ -217,13 +214,13 @@
     <value>MS Word</value>
   </data>
   <data name="__private_in_memory_cache_" xml:space="preserve">
-    <value> /защищенный режим, кеш в паямяти/</value>
+    <value> /не сохраняемый кеш в памяти/</value>
   </data>
   <data name="__private_persistent_cache_" xml:space="preserve">
-    <value> /защищенный режим, кэш на диске/</value>
+    <value> /сохраняемый на диске кэш сущности/</value>
   </data>
   <data name="__private_persistent_cache__cleared__" xml:space="preserve">
-    <value> /защищенный режим, кэш на диске (очистить)/</value>
+    <value> /сохраняемый на диске кэш сущности (очистить)/</value>
   </data>
   <data name="Path" xml:space="preserve">
     <value>Путь</value>
@@ -290,5 +287,125 @@
   </data>
   <data name="Web_accounts_management" xml:space="preserve">
     <value>Управление Web аккаунтами</value>
+  </data>
+  <data name="__common_cache" xml:space="preserve">
+    <value>/сохраняемый на диске кэш общий/</value>
+  </data>
+  <data name="AllowedVPNServer" xml:space="preserve">
+    <value>Требуемое VPN подключение. Заполняется, если для данной сущнности рекомендовано выходить в интернет через определенное VPN подключение</value>
+  </data>
+  <data name="BaseWebAccount_AddJMoneyBankAcc" xml:space="preserve">
+    <value>Дополнительные и старые банковские счета</value>
+  </data>
+  <data name="BaseWebAccount_AppPassword" xml:space="preserve">
+    <value>Пароль приложения</value>
+  </data>
+  <data name="BaseWebAccount_ControlAns" xml:space="preserve">
+    <value>Контрольный ответ</value>
+  </data>
+  <data name="BaseWebAccount_ControlQ" xml:space="preserve">
+    <value>Контрольный вопрос</value>
+  </data>
+  <data name="BaseWebAccount_OAuthWebAccount" xml:space="preserve">
+    <value>OAuth аккаунт. Сторонний аккаунт, который необходимо испольовать для доступа к данному ресурсу (по протоколу OAuth) </value>
+  </data>
+  <data name="BaseWebAccount_Expired" xml:space="preserve">
+    <value>Признак "посроченнсти". Если аккаунт считается просроченным (из-за отсутствия оплаты или отсутствия активности.</value>
+  </data>
+  <data name="BaseWebAccount_ExpiredPeriod" xml:space="preserve">
+    <value>Период действия регистрации. Срок, после которого аккаунт считается просроченным (из-за отсутствия оплаты или отсутствия активности).   </value>
+  </data>
+  <data name="BaseWebAccount_JActor" xml:space="preserve">
+    <value>Актер</value>
+  </data>
+  <data name="BaseWebAccount_JMailAccount" xml:space="preserve">
+    <value>Почтовый адрес при регистрации</value>
+  </data>
+  <data name="BaseWebAccount_JMoneyBankAcc" xml:space="preserve">
+    <value>Основной банковский счет</value>
+  </data>
+  <data name="BaseWebAccount_JPhoneNumber" xml:space="preserve">
+    <value>Телефон подтверждения</value>
+  </data>
+  <data name="BaseWebAccount_LastRenewDate" xml:space="preserve">
+    <value>Дата последнего подтверждения активности. Используется для контроля "просроченности" аккаунта</value>
+  </data>
+  <data name="Click_OK_to_ignore_the_warning_and_continue_Click_Cancel_to_cancel" xml:space="preserve">
+    <value>Нажмите "ОК", чтобы игонорировать предупреждение и продолжить. Нажмите "Отмена" для отмены</value>
+  </data>
+  <data name="Click_Yes_to_connect_to_the_desired_VPN_server" xml:space="preserve">
+    <value>Нажмите "Да", чтобы соединиться с нужным VPN сервером. Нажмите "Нет", чтобы игонорировать предупреждение и продолжить. Нажмите "Отмена" для отмены.</value>
+  </data>
+  <data name="Current_VPN_connection_is_not_established" xml:space="preserve">
+    <value>Текущее VPN соединение не установлено.</value>
+  </data>
+  <data name="For_this_entity_you_need_access_to_the_Internet_through_a_specific_VPN" xml:space="preserve">
+    <value>Для этого объекта вам необходим доступ в Интернет через определенное VPN-соединение.</value>
+  </data>
+  <data name="The_current_VPN_connection_does_not_match" xml:space="preserve">
+    <value>Текущее VPN соединение не соответствует заданному для этой сущности.</value>
+  </data>
+  <data name="This_VPN_connection_has_not_been_established" xml:space="preserve">
+    <value>Это VPN соединение не установлено и не найдено среди возможных соединений.</value>
+  </data>
+  <data name="Clear_browser_cache_for_entity" xml:space="preserve">
+    <value>Очистить кеш броузера для сущности</value>
+  </data>
+  <data name="Clear_browser_cache_for_entity_actor" xml:space="preserve">
+    <value>Очистить кеш броузера для актера сущности</value>
+  </data>
+  <data name="Clear_common_browser_cache" xml:space="preserve">
+    <value>Очистить общий кеш броузера</value>
+  </data>
+  <data name="JPhoneNumber_JPhoneNumberId" xml:space="preserve">
+    <value>Идентификатор</value>
+  </data>
+  <data name="JPhoneNumber_Number" xml:space="preserve">
+    <value>Номер</value>
+  </data>
+  <data name="JPhoneNumber_JMobileOperator" xml:space="preserve">
+    <value>Мобильный оператор</value>
+  </data>
+  <data name="JPhoneNumber_Country" xml:space="preserve">
+    <value>Страна</value>
+  </data>
+  <data name="JPhoneNumber_Owner" xml:space="preserve">
+    <value>Зарегистрирован</value>
+  </data>
+  <data name="JPhoneNumber_JActor" xml:space="preserve">
+    <value>Актер</value>
+  </data>
+  <data name="JPhoneNumber_Purpose" xml:space="preserve">
+    <value>Назначение</value>
+  </data>
+  <data name="JPhoneNumber_Balance" xml:space="preserve">
+    <value>Баланс</value>
+  </data>
+  <data name="JPhoneNumber_IsArchived" xml:space="preserve">
+    <value>Архивный</value>
+  </data>
+  <data name="JPhoneNumber_Login" xml:space="preserve">
+    <value>Логин</value>
+  </data>
+  <data name="JPhoneNumber_Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="JPhoneNumber_Info" xml:space="preserve">
+    <value>Информация</value>
+  </data>
+  <data name="JPhoneNumber_Attachments" xml:space="preserve">
+    <value>Прикрепленные документы</value>
+  </data>
+  <data name="JPhoneNumber_WebEntryInfo" xml:space="preserve">
+    <value>WebEntryInfo</value>
+  </data>
+  <data name="Finance" xml:space="preserve">
+    <value>Финансы</value>
+  </data>
+  <data name="Mail_and_messangers" xml:space="preserve">
+    <value>Почта и сообщения</value>
+  </data>
+  <data name="Phones" xml:space="preserve">
+    <value>Телефоны</value>
   </data>
 </root>

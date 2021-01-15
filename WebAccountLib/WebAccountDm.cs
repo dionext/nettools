@@ -20,8 +20,11 @@ using FrwSoftware;
 
 namespace Dionext
 {
+
+
     public class WADictNames : VpnDictNames
     {
+
     }
     public class WebAccountDm : VpnSelectorDm
     {

@@ -215,91 +215,91 @@
   <data name="Non_PPTP_no_L2TP_protocols_available_for_this_vpn_entry" xml:space="preserve">
     <value>Ни один из протоколов  PPTP или L2TP не определен для данной записи</value>
   </data>
-  <data name="BaseProxyProvider" xml:space="preserve">
+  <data name="BaseVPNProvider" xml:space="preserve">
     <value>VPN провайдер</value>
   </data>
-  <data name="BaseProxyProvider_JProxyProviderId" xml:space="preserve">
+  <data name="BaseVPNProvider_JVPNProviderId" xml:space="preserve">
     <value>Идентификатор</value>
   </data>
-  <data name="BaseProxyProvider_Name" xml:space="preserve">
+  <data name="BaseVPNProvider_Name" xml:space="preserve">
     <value>Наименование</value>
   </data>
-  <data name="BaseProxyProvider_URL" xml:space="preserve">
+  <data name="BaseVPNProvider_URL" xml:space="preserve">
     <value>URL</value>
   </data>
-  <data name="BaseProxyProvider_Login" xml:space="preserve">
-    <value>Логин</value>
+  <data name="BaseVPNProvider_Login" xml:space="preserve">
+    <value>Логин. Для доступа на сайт провайдера.</value>
   </data>
-  <data name="BaseProxyProvider_Password" xml:space="preserve">
-    <value>Пароль</value>
+  <data name="BaseVPNProvider_Password" xml:space="preserve">
+    <value>Пароль. Для доступа на сайт провайдера. </value>
   </data>
-  <data name="BaseProxyProvider_VPNLogin" xml:space="preserve">
-    <value>VPN Логин</value>
+  <data name="BaseVPNProvider_VPNLogin" xml:space="preserve">
+    <value>VPN Логин. Для VPN подключения.</value>
   </data>
-  <data name="BaseProxyProvider_VPNPassword" xml:space="preserve">
-    <value>VPN Пароль</value>
+  <data name="BaseVPNProvider_VPNPassword" xml:space="preserve">
+    <value>VPN Пароль. Для VPN подключения.</value>
   </data>
-  <data name="BaseProxyProvider_UserPresharedKey" xml:space="preserve">
-    <value>User Preshared Key</value>
+  <data name="BaseVPNProvider_UserPresharedKey" xml:space="preserve">
+    <value>Ключ проверки подлинности. Pre-shared key, PSK.</value>
   </data>
-  <data name="BaseProxyProvider_SecLevel" xml:space="preserve">
+  <data name="BaseVPNProvider_SecLevel" xml:space="preserve">
     <value>Уровень защиты</value>
   </data>
-  <data name="BaseProxyProvider_Info" xml:space="preserve">
+  <data name="BaseVPNProvider_Info" xml:space="preserve">
     <value>Информация</value>
   </data>
-  <data name="BaseProxyProvider_Attachments" xml:space="preserve">
+  <data name="BaseVPNProvider_Attachments" xml:space="preserve">
     <value>Прикрепленные документы</value>
   </data>
-  <data name="BaseProxyServer" xml:space="preserve">
-    <value>VPN сервер</value>
+  <data name="BaseVPNServer" xml:space="preserve">
+    <value>VPN сервер. URL VPN сервера</value>
   </data>
-  <data name="BaseProxyServer_JProxyServerId" xml:space="preserve">
+  <data name="BaseVPNServer_JVPNServerId" xml:space="preserve">
     <value>Идентификатор</value>
   </data>
-  <data name="BaseProxyServer_Url" xml:space="preserve">
+  <data name="BaseVPNServer_Url" xml:space="preserve">
     <value>URL</value>
   </data>
-  <data name="BaseProxyServer_JCountry" xml:space="preserve">
+  <data name="BaseVPNServer_JCountry" xml:space="preserve">
     <value>Страна</value>
   </data>
-  <data name="BaseProxyServer_JCountryDeclared" xml:space="preserve">
+  <data name="BaseVPNServer_JCountryDeclared" xml:space="preserve">
     <value>Страна (декларируемая)</value>
   </data>
-  <data name="BaseProxyServer_Town" xml:space="preserve">
+  <data name="BaseVPNServer_Town" xml:space="preserve">
     <value>Город</value>
   </data>
-  <data name="BaseProxyServer_TownDeclared" xml:space="preserve">
+  <data name="BaseVPNServer_TownDeclared" xml:space="preserve">
     <value>Город  (декларируемый)</value>
   </data>
-  <data name="BaseProxyServer_AvailableProtocols" xml:space="preserve">
-    <value>Доступные для работы протоколы</value>
+  <data name="BaseVPNServer_AvailableProtocols" xml:space="preserve">
+    <value>Протоколы. Доступные для работы с данным сервером.  </value>
   </data>
-  <data name="BaseProxyServer_EncryptionType" xml:space="preserve">
-    <value />
+  <data name="BaseVPNServer_EncryptionType" xml:space="preserve">
+    <value>Тип кодирования</value>
   </data>
-  <data name="BaseProxyServer_Favorite" xml:space="preserve">
+  <data name="BaseVPNServer_Favorite" xml:space="preserve">
     <value>Избранное</value>
   </data>
-  <data name="BaseProxyServer_ErrorCount" xml:space="preserve">
+  <data name="BaseVPNServer_ErrorCount" xml:space="preserve">
     <value>Кол-во ошибкок при подключении</value>
   </data>
-  <data name="BaseProxyServer_SuccessCount" xml:space="preserve">
+  <data name="BaseVPNServer_SuccessCount" xml:space="preserve">
     <value>Кол-во успешных подключений</value>
   </data>
-  <data name="BaseProxyServer_LastErrorDate" xml:space="preserve">
+  <data name="BaseVPNServer_LastErrorDate" xml:space="preserve">
     <value>Дата последней ошибки подключения</value>
   </data>
-  <data name="BaseProxyServer_LastSuccessDate" xml:space="preserve">
+  <data name="BaseVPNServer_LastSuccessDate" xml:space="preserve">
     <value>Дата последнего успешного подключения</value>
   </data>
-  <data name="BaseProxyServer_IsArchive" xml:space="preserve">
+  <data name="BaseVPNServer_IsArchived" xml:space="preserve">
     <value>Архивный</value>
   </data>
-  <data name="BaseProxyServer_Stage" xml:space="preserve">
-    <value>Стадия тестирования</value>
+  <data name="BaseVPNServer_Stage" xml:space="preserve">
+    <value>Стадия тестирования. Во время проведения пользовательского тестирования данного VPN подключения показывает его стадию.</value>
   </data>
-  <data name="FProxyProvider_JProxyProvider" xml:space="preserve">
+  <data name="FVPNProvider_JVPNProvider" xml:space="preserve">
     <value>VPN провайдер</value>
   </data>
   <data name="VPN_selector" xml:space="preserve">

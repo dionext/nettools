@@ -18,21 +18,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmbeddedBrowserTabUserControl));
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.findTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.findPreviousButton = new System.Windows.Forms.ToolStripButton();
+            this.findNextButton = new System.Windows.Forms.ToolStripButton();
             this.findCloseButton = new System.Windows.Forms.ToolStripButton();
             this.statusLabel = new System.Windows.Forms.Label();
             this.outputLabel = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.urlTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.browserPanel = new System.Windows.Forms.Panel();
             this.backButton = new System.Windows.Forms.ToolStripButton();
             this.forwardButton = new System.Windows.Forms.ToolStripButton();
+            this.urlTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.goButton = new System.Windows.Forms.ToolStripButton();
             this.zoomInButton = new System.Windows.Forms.ToolStripButton();
             this.zoomOutButton = new System.Windows.Forms.ToolStripButton();
             this.loginButton = new System.Windows.Forms.ToolStripButton();
             this.passwordButton = new System.Windows.Forms.ToolStripButton();
-            this.findPreviousButton = new System.Windows.Forms.ToolStripButton();
-            this.findNextButton = new System.Windows.Forms.ToolStripButton();
+            this.browserPanel = new System.Windows.Forms.Panel();
             this.toolStrip2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -51,9 +51,25 @@
             // 
             // findTextBox
             // 
-            this.findTextBox.Name = "findTextBox";
             resources.ApplyResources(this.findTextBox, "findTextBox");
+            this.findTextBox.Name = "findTextBox";
             this.findTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FindTextBoxKeyDown);
+            // 
+            // findPreviousButton
+            // 
+            this.findPreviousButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.findPreviousButton.Image = global::EmbeddedBrowser.Properties.Resources.nav_left_green;
+            resources.ApplyResources(this.findPreviousButton, "findPreviousButton");
+            this.findPreviousButton.Name = "findPreviousButton";
+            this.findPreviousButton.Click += new System.EventHandler(this.FindPreviousButtonClick);
+            // 
+            // findNextButton
+            // 
+            this.findNextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.findNextButton.Image = global::EmbeddedBrowser.Properties.Resources.nav_right_green;
+            resources.ApplyResources(this.findNextButton, "findNextButton");
+            this.findNextButton.Name = "findNextButton";
+            this.findNextButton.Click += new System.EventHandler(this.FindNextButtonClick);
             // 
             // findCloseButton
             // 
@@ -91,17 +107,6 @@
             this.toolStrip1.Stretch = true;
             this.toolStrip1.Layout += new System.Windows.Forms.LayoutEventHandler(this.HandleToolStripLayout);
             // 
-            // urlTextBox
-            // 
-            resources.ApplyResources(this.urlTextBox, "urlTextBox");
-            this.urlTextBox.Name = "urlTextBox";
-            this.urlTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.UrlTextBoxKeyUp);
-            // 
-            // browserPanel
-            // 
-            resources.ApplyResources(this.browserPanel, "browserPanel");
-            this.browserPanel.Name = "browserPanel";
-            // 
             // backButton
             // 
             this.backButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -117,6 +122,12 @@
             this.forwardButton.Image = global::EmbeddedBrowser.Properties.Resources.nav_right_green;
             this.forwardButton.Name = "forwardButton";
             this.forwardButton.Click += new System.EventHandler(this.ForwardButtonClick);
+            // 
+            // urlTextBox
+            // 
+            resources.ApplyResources(this.urlTextBox, "urlTextBox");
+            this.urlTextBox.Name = "urlTextBox";
+            this.urlTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.UrlTextBoxKeyUp);
             // 
             // goButton
             // 
@@ -157,30 +168,19 @@
             this.passwordButton.Name = "passwordButton";
             this.passwordButton.Click += new System.EventHandler(this.passwordButton_Click);
             // 
-            // findPreviousButton
+            // browserPanel
             // 
-            this.findPreviousButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.findPreviousButton.Image = global::EmbeddedBrowser.Properties.Resources.nav_left_green;
-            resources.ApplyResources(this.findPreviousButton, "findPreviousButton");
-            this.findPreviousButton.Name = "findPreviousButton";
-            this.findPreviousButton.Click += new System.EventHandler(this.FindPreviousButtonClick);
+            resources.ApplyResources(this.browserPanel, "browserPanel");
+            this.browserPanel.Name = "browserPanel";
             // 
-            // findNextButton
-            // 
-            this.findNextButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.findNextButton.Image = global::EmbeddedBrowser.Properties.Resources.nav_right_green;
-            resources.ApplyResources(this.findNextButton, "findNextButton");
-            this.findNextButton.Name = "findNextButton";
-            this.findNextButton.Click += new System.EventHandler(this.FindNextButtonClick);
-            // 
-            // CefBrowserTabUserControl
+            // EmbeddedBrowserTabUserControl
             // 
             this.Controls.Add(this.browserPanel);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.outputLabel);
             this.Controls.Add(this.toolStrip2);
-            this.Name = "CefBrowserTabUserControl";
+            this.Name = "EmbeddedBrowserTabUserControl";
             resources.ApplyResources(this, "$this");
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();

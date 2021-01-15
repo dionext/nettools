@@ -20,130 +20,84 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Drawing;
 using FrwSoftware;
+using System.Diagnostics;
 
 namespace Dionext
 {
-    public class WebAccountLibAppManager : AppManager
+    public class WebAccountLibAppManager : VpnSelectorAppManager
     {
-        override protected IListProcessor GetListWindowForType(Type type)
+        public bool CheckIfWeNeedVPN(WebEntryInfo webEntryInfo)
         {
-            IListProcessor w = null;
-            if (AttrHelper.IsSameOrSubclass(typeof(BaseProxyServer), type)) w = new JProxyServerListWindow();
-            else w = base.GetListWindowForType(type);
-            return w;
-        }
-        virtual public bool CheckLevel(WebEntryInfo webEntryInfo)
-        {
-            /*
             string mes = null;
-            if (JDm.MyCurrentCompDeviceNetwork == null)
+            JVPNServer allowedVPNServer = null;
+            if (webEntryInfo.AllowedVPNServerId != null)
             {
-                mes = "Не установлена текущая сеть.";
+                allowedVPNServer = Dm.Instance.Find<JVPNServer>(webEntryInfo.AllowedVPNServerId);
             }
-            else
+            //if (webEntryInfo.AllowedVPNServerId != null || webEntryInfo.AllowedVPNCountrу != null || webEntryInfo.AllowedVPNTown != null)
+            if (webEntryInfo.AllowedVPNServerId != null)
             {
-                bool found = false;
-                if (webEntryInfo.AllowedNetworks != null && webEntryInfo.AllowedNetworks.Count > 0)
+                string allowedMes = WebAccountLibRes.For_this_entity_you_need_access_to_the_Internet_through_a_specific_VPN;
+                if (VpnConnUtils.CurrentVPNServer == null)
                 {
-                    foreach (var n in webEntryInfo.AllowedNetworks)
-                    {
-                        if (n.Equals(JDm.MyCurrentCompDeviceNetwork))
-                        {
-                            found = true;
-                            break;
-                        }
-                    }
+                    mes = allowedMes + WebAccountLibRes.Current_VPN_connection_is_not_established;
                 }
-
-                if (found == false)
+                else 
                 {
-                    if (webEntryInfo.AllowedNetworks != null && webEntryInfo.AllowedNetworks.Count > 0)
+                    if (webEntryInfo.AllowedVPNServerId != null)
                     {
-                        mes = "Текущая сеть не найдена в списке разрешенных для данного устройства";
-                    }
-                    else
-                    {
-                        if (JDm.MyCurrentCompDeviceNetwork.IsPersonal == true)
+                        if (allowedVPNServer == null)
                         {
-                            mes = "Текущая сеть является персональной. Она должна быть явно прописана для открытия данного ресурса.";
+                            mes = allowedMes + WebAccountLibRes.This_VPN_connection_has_not_been_established;
                         }
-                    }
-                }
-                if (mes == null)
-                {
-                    SecLevelEnum networkSecLevel = SecLevelEnum.Low;
-                    if (JDm.MyCurrentCompDeviceNetwork.Router != null && JDm.MyCurrentCompDeviceNetwork.Router.JPhoneNumber != null
-                        && JDm.MyCurrentCompDeviceNetwork.Router.JPhoneNumber.JActor != null)
-                    {
-                        networkSecLevel = (SecLevelEnum)JDm.MyCurrentCompDeviceNetwork.Router.JPhoneNumber.JActor.SecLevel;
-                    }
-                    SecLevelEnum proxySecLevel = SecLevelEnum.Low;
-                    if (DotRasUtils.CurrentProxyServer != null)
-                    {
-                        proxySecLevel = (SecLevelEnum)DotRasUtils.CurrentProxyServer.JProxyProvider.SecLevel;
-                        if (webEntryInfo.SecLevel >= (int)SecLevelEnum.High)
+                        else if (VpnConnUtils.CurrentVPNServer != allowedVPNServer)
                         {
-                            if ((int)proxySecLevel < webEntryInfo.SecLevel)
-                            {
-                                mes = "Уровень безопасности текущего прокси (" + proxySecLevel + ") меньше, чем требуемый уровень для данного ресурса (" + ((SecLevelEnum)webEntryInfo.SecLevel) + ")"; ;
-                            }
-                        }
-
-                    }
-                    else
-                    {
-
-                        if (webEntryInfo.SecLevel >= (int)SecLevelEnum.High)
-                        {
-                            if ((int)networkSecLevel < webEntryInfo.SecLevel)
-                            {
-                                mes = "Уровень безопасности текущей сети (" + networkSecLevel + ") меньше, чем требуемый уровень для данного ресурса (" + ((SecLevelEnum)webEntryInfo.SecLevel) + ")"; ;
-                            }
+                            mes = allowedMes + WebAccountLibRes.The_current_VPN_connection_does_not_match;
                         }
                     }
                 }
             }
+                
             if (mes != null)
             {
-                DialogResult res = MessageBox.Show(mes + " Нажмите ОК, чтобы игонорировать предупреждение и продолжить. Нажмите Cancel для отмены",
-                    FrwConstants.WARNING, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                if (res != DialogResult.OK)
+                if (allowedVPNServer != null)
                 {
-                    //todo подключение к прокси 
-                    return false;
-                }
-            }
-            */
-            return true;
-        }
-
-        override public List<ToolStripItem> CreateGetPasswordContextMenu(Action<string> setNewPassword)
-        {
-            ToolStripMenuItem menuItem = null;
-            List<ToolStripItem> subs = new List<ToolStripItem>();
-            menuItem = new ToolStripMenuItem();
-            menuItem.Text = WebAccountLibRes.Generate_new_password;
-            menuItem.Click += (s, em) =>
-            {
-                try
-                {
-                    DialogResult res = MessageBox.Show(null, WebAccountLibRes.To_generate_new_password_press__Yes__,
-                        WebAccountLibRes.Warning, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    DialogResult res = MessageBox.Show(mes + " " + WebAccountLibRes.Click_Yes_to_connect_to_the_desired_VPN_server,
+                        FrwConstants.WARNING, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                     if (res == DialogResult.Yes)
                     {
-                        string psw = PasswordUtils.GeneratePassword(8, 0);
-                        setNewPassword(psw);
+                        try {     
+                            Cursor.Current = Cursors.WaitCursor;
+                            bool conRes = VpnConnUtils.ConnectWithConfirmation(allowedVPNServer);
+                            return conRes;
+                        }
+                        finally
+                        {
+                            Cursor.Current = Cursors.Default;
+                        }
+                    }
+                    else if (res == DialogResult.No)
+                    {
+                        //do nothing
+                    }
+                    else //Cancel or close
+                    {
+                        return false;
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    Log.ShowError(ex);
+                    DialogResult res = MessageBox.Show(mes + " " + WebAccountLibRes.Click_OK_to_ignore_the_warning_and_continue_Click_Cancel_to_cancel,
+                        FrwConstants.WARNING, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    if (res != DialogResult.OK) //Cancel or close
+                    {
+                        return false;
+                    }
                 }
-            };
-            subs.Add(menuItem);
-            return subs;
+            }
+                
+            return true;
         }
 
 
@@ -162,24 +116,25 @@ namespace Dionext
 
             StringBuilder text = new StringBuilder();
             text.Append(WebAccountLibRes.Open_in_ + " ");
-            if (viewType == ViewType.Awesomium) text.Append(WebAccountLibRes.Awesomium);
-            else if (viewType == ViewType.CefBrowser) text.Append(WebAccountLibRes.Chromium_Embedded);
-            else if (viewType == ViewType.IE) text.Append(WebAccountLibRes.IE);
+            //if (viewType == ViewType.Awesomium) text.Append(WebAccountLibRes.Awesomium);
+            if (viewType == ViewType.CefBrowser) text.Append(WebAccountLibRes.Chromium_Embedded);
+            //else if (viewType == ViewType.IE) text.Append(WebAccountLibRes.IE);
             else if (viewType == ViewType.Simple) text.Append(WebAccountLibRes.Simple_editor);
             else if (viewType == ViewType.WORD) text.Append(WebAccountLibRes.MS_Word);
             if (viewType == ViewType.CefBrowser)
             {
-                if (browserPrivateType == BrowserPrivateType.COMMON_CACHE) text.Append("");
+                if (browserPrivateType == BrowserPrivateType.COMMON_CACHE) text.Append(WebAccountLibRes.__common_cache);
                 else if (browserPrivateType == BrowserPrivateType.PERSONAL_IN_MEMORY_CACHE) text.Append(WebAccountLibRes.__private_in_memory_cache_);
                 else if (browserPrivateType == BrowserPrivateType.PERSONAL_OLD_DISK_CACHE) text.Append(WebAccountLibRes.__private_persistent_cache_);
-                else if (browserPrivateType == BrowserPrivateType.PERSONAL_NEW_DISK_CACHE) text.Append(WebAccountLibRes.__private_persistent_cache__cleared__);
+                //else if (browserPrivateType == BrowserPrivateType.PERSONAL_NEW_DISK_CACHE) text.Append(WebAccountLibRes.__private_persistent_cache__cleared__);
             }
             menuItem.Text = text.ToString();
             menuItem.Click += (s, em) =>
             {
                 try
                 {
-                    if (CheckLevel(webEntryInfo) == false) return;
+
+                    if (CheckIfWeNeedVPN(webEntryInfo) == false) return;
 
                     BaseViewWindow itemViewWindow = AppManager.Instance.CreateContent(contentContainer, AppManager.Instance.DefaultViewWindowType,
                             new Dictionary<string, object>() {
@@ -200,38 +155,7 @@ namespace Dionext
         }
 
 
-        private void OpenInInternalBrowser(
-            WebEntryInfo webEntryInfo,
-            IContentContainer contentContainer,
-            object selectedObject,
-            string webEntityInfoPropertyName = null)
-        {
-            string url = webEntryInfo != null ? webEntryInfo.Url : null;
-            BrowserPrivateType browserPrivateType = webEntryInfo.BrowserPrivateType;
-            ViewType viewType = webEntryInfo.RecоmmendedViewType;
-
-            bool isFile = false;
-            bool isUrl = false;
-            FileUtils.IsFilePath(url, out isFile, out isUrl);
-            if (isFile)
-            {
-                if (viewType == ViewType.NONE) viewType = GetViewTypeByFilePath(url);
-            }
-            else viewType = ViewType.CefBrowser;
-
-            BaseViewWindow itemViewWindow = AppManager.Instance.CreateContent(contentContainer, AppManager.Instance.DefaultViewWindowType,
-                    new Dictionary<string, object>() {
-                                    { "Item", selectedObject },
-                                    { "WebEntityInfoPropertyName", webEntityInfoPropertyName },
-                                    { "BrowserPrivateType",  browserPrivateType }
-                    }) as BaseViewWindow;
-            itemViewWindow.ViewType = viewType;
-            itemViewWindow.FileFullPath = url;
-            itemViewWindow.ProcessView();
-
-        }
-
-
+ 
         virtual protected void OpenOtherTools(WebEntryInfo webEntryInfo, List<ToolStripItem> subs)
         {
         }
@@ -242,6 +166,7 @@ namespace Dionext
         override public List<ToolStripItem> CreateOpenInBrowserContextMenu(WebEntryInfo webEntryInfo, IContentContainer contentContainer, object selectedObject, string webEntityInfoPropertyName = null)
         {
             string url = webEntryInfo != null ? webEntryInfo.Url : null;
+
             ToolStripMenuItem menuItem = null;
             List<ToolStripItem> subs = new List<ToolStripItem>();
             List<ToolStripItem> subs1 = new List<ToolStripItem>();
@@ -257,77 +182,66 @@ namespace Dionext
                 FileUtils.IsFilePath(url, out isFile, out isUrl);
                 string oTitle = isFile ? WebAccountLibRes.Path : WebAccountLibRes.URL;
 
+                string uri = isFile? FileUtils.FilePathWithBookmarkToFileUrl(url) : url;
+
                 if (isFile)
                 {
                     if (recоmmendedViewType == ViewType.NONE) recоmmendedViewType = GetViewTypeByFilePath(url);
                 }
                 else recоmmendedViewType = ViewType.CefBrowser;
-                
+
                 //////////////////
                 //open favorit 
                 /////////////////
 
                 //default
-                menuItem = new ToolStripMenuItem();
-                menuItem.Text = WebAccountLibRes.Open_in + " " +  WebAccountLibRes.In_default_external_application;
-                menuItem.Font = new Font(menuItem.Font, FontStyle.Bold);
-                menuItem.Click += (s, em) =>
+                if (FileUtils.IsHtmlFileWithBookmark(url) && AppLocator.ChromePath != null)
                 {
-                    try
+                    menuItem = new ToolStripMenuItem();
+                    menuItem.Text = WebAccountLibRes.Open_in_Chrome;
+                    menuItem.Font = new Font(menuItem.Font, FontStyle.Bold);
+                    menuItem.Click += (s, em) =>
                     {
-                        if (CheckLevel(webEntryInfo) == false) return;
-                        AppManager.Instance.CurrentWebEntryInfo = webEntryInfo;
-                        ProcessUtils.OpenFile(url);
-                    }
-                    catch (Exception ex)
+                        try
+                        {
+                            if (CheckIfWeNeedVPN(webEntryInfo) == false) return;
+                            AppManager.Instance.CurrentWebEntryInfo = webEntryInfo;
+                            ProcessUtils.ExecuteProgram(AppLocator.ChromePath, uri);
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.ShowError(ex);
+                        }
+                    };
+                    subs.Add(menuItem);
+                }
+                else
+                {
+                    menuItem = new ToolStripMenuItem();
+                    menuItem.Text = WebAccountLibRes.Open_in + " " + WebAccountLibRes.In_default_external_application;
+                    menuItem.Font = new Font(menuItem.Font, FontStyle.Bold);
+                    menuItem.Click += (s, em) =>
                     {
-                        Log.ShowError(ex);
-                    }
-                };
-                subs.Add(menuItem);
+                        try
+                        {
+                            if (CheckIfWeNeedVPN(webEntryInfo) == false) return;
+                            AppManager.Instance.CurrentWebEntryInfo = webEntryInfo;
+                            ProcessUtils.OpenFile(url);
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.ShowError(ex);
+                        }
+                    };
+                    subs.Add(menuItem);
+                }
+
+
 
                 //internal
                 CreateOpenInInternalBrowserContextMenu(subs, ViewType.CefBrowser, recоmmendedViewType, BrowserPrivateType.PERSONAL_OLD_DISK_CACHE,
-                    url, webEntryInfo, contentContainer, selectedObject, webEntityInfoPropertyName);
+                   url, webEntryInfo, contentContainer, selectedObject, webEntityInfoPropertyName);
                 //external
-                if (AppLocator.ChromePath != null)
-                {
-                    /*
-                    menuItem = new ToolStripMenuItem();
-                    menuItem.Text = WebAccountLibRes.Open_in_external_Chrome;
-                    menuItem.Click += (s, em) =>
-                    {
-                        try
-                        {
-                            if (CheckLevel(webEntryInfo) == false) return;
-                            AppManager.Instance.CurrentWebEntryInfo = webEntryInfo;
-                            ProcessUtils.ExecuteProgram(AppLocator.ChromePath,  url);
-                        }
-                        catch (Exception ex)
-                        {
-                            Log.ShowError(ex);
-                        }
-                    };
-                    subs.Add(menuItem);
-                   
-                    menuItem = new ToolStripMenuItem();
-                    menuItem.Text = WebAccountLibRes.Open_in_external_Chrome + " (" + WebAccountLibRes.private_mode + ")";
-                    menuItem.Click += (s, em) =>
-                    {
-                        try
-                        {
-                            if (CheckLevel(webEntryInfo) == false) return;
-                            AppManager.Instance.CurrentWebEntryInfo = webEntryInfo;
-                            ProcessUtils.ExecuteProgram(AppLocator.ChromePath, "-incognito " + url);
-                        }
-                        catch (Exception ex)
-                        {
-                            Log.ShowError(ex);
-                        }
-                    };
-                    subs.Add(menuItem);
-                     */
-                }
                 if (isFile)
                 {
                     //open folder
@@ -360,14 +274,86 @@ namespace Dionext
                     url, webEntryInfo, contentContainer, selectedObject, webEntityInfoPropertyName);
                 CreateOpenInInternalBrowserContextMenu(subs2, ViewType.CefBrowser, recоmmendedViewType, BrowserPrivateType.PERSONAL_OLD_DISK_CACHE,
                     url, webEntryInfo, contentContainer, selectedObject, webEntityInfoPropertyName);
-                CreateOpenInInternalBrowserContextMenu(subs2, ViewType.CefBrowser, recоmmendedViewType, BrowserPrivateType.PERSONAL_NEW_DISK_CACHE,
-                    url, webEntryInfo, contentContainer, selectedObject, webEntityInfoPropertyName);
                 CreateOpenInInternalBrowserContextMenu(subs2, ViewType.CefBrowser, recоmmendedViewType, BrowserPrivateType.PERSONAL_IN_MEMORY_CACHE,
                     url, webEntryInfo, contentContainer, selectedObject, webEntityInfoPropertyName);
-                CreateOpenInInternalBrowserContextMenu(subs2, ViewType.IE, recоmmendedViewType, BrowserPrivateType.COMMON_CACHE,
-                    url, webEntryInfo, contentContainer, selectedObject, webEntityInfoPropertyName);
-                CreateOpenInInternalBrowserContextMenu(subs2, ViewType.Awesomium, recоmmendedViewType, BrowserPrivateType.COMMON_CACHE,
-                    url, webEntryInfo, contentContainer, selectedObject, webEntityInfoPropertyName);
+
+                string commonCachePath = Dm.Instance.GetBrowserCommonCachePathUniqueForCompAndUser();
+                string objectCachepath = Dm.Instance.GetCacheFullPathForObjectUniqueForCompAndUser(selectedObject);
+                menuItem = new ToolStripMenuItem();
+                menuItem.Text = WebAccountLibRes.Clear_browser_cache_for_entity;
+                if (Directory.Exists(objectCachepath) == false)
+                {
+                    menuItem.Enabled = false;
+                }
+                menuItem.Click += (s, em) =>
+                {
+                    try
+                    {
+                        if (Directory.Exists(objectCachepath))
+                            FileUtils.DeleteDirectory(objectCachepath);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.ShowError(ex);
+                    }
+                };
+                subs2.Add(menuItem);
+                
+                JActor actor = null;
+                var pl = selectedObject.GetType().GetProperties();
+                Type at = typeof(JActor);
+                foreach (var p in pl)
+                {
+                    if (p.PropertyType == at)
+                    {
+                        actor = AttrHelper.GetPropertyValue(selectedObject, p) as JActor;
+                        break;
+                    }
+                }
+                if (actor != null)
+                {
+                    string actorCachepath = Dm.Instance.GetCacheFullPathForObjectUniqueForCompAndUser(actor);
+                    menuItem = new ToolStripMenuItem();
+                    menuItem.Text = WebAccountLibRes.Clear_browser_cache_for_entity_actor;
+                    if (Directory.Exists(actorCachepath) == false)
+                    {
+                        menuItem.Enabled = false;
+                    }
+                    menuItem.Click += (s, em) =>
+                    {
+                        try
+                        {
+                            if (Directory.Exists(actorCachepath))
+                                FileUtils.DeleteDirectory(actorCachepath);
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.ShowError(ex);
+                        }
+                    };
+                    subs2.Add(menuItem);
+                }
+                
+                menuItem = new ToolStripMenuItem();
+                menuItem.Text = WebAccountLibRes.Clear_common_browser_cache;
+                if (Directory.Exists(commonCachePath) == false)
+                {
+                    menuItem.Enabled = false;
+                }
+                menuItem.Click += (s, em) =>
+                {
+                    try
+                    {
+                        if (Directory.Exists(commonCachePath))
+                            FileUtils.DeleteDirectory(commonCachePath);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.ShowError(ex);
+                    }
+                };
+                subs2.Add(menuItem);
+                //open folder
                 if (isFile)
                 {
                     CreateOpenInInternalBrowserContextMenu(subs2, ViewType.Simple, recоmmendedViewType, BrowserPrivateType.COMMON_CACHE,
@@ -396,8 +382,10 @@ namespace Dionext
                     {
                         try
                         {
-                            if (CheckLevel(webEntryInfo) == false) return;
+                            if (CheckIfWeNeedVPN(webEntryInfo) == false) return;
                             AppManager.Instance.CurrentWebEntryInfo = webEntryInfo;
+                            //open local files (or local uri to file) not supported
+                            //https://stackoverflow.com/questions/34798285/how-can-i-open-a-local-html-file-in-microsoft-edge-browser
                             ProcessUtils.ExecuteProgram("cmd.exe", "/c start microsoft-edge:" + url);
                         }
                         catch (Exception ex)
@@ -415,9 +403,9 @@ namespace Dionext
                     {
                         try
                         {
-                            if (CheckLevel(webEntryInfo) == false) return;
+                            if (CheckIfWeNeedVPN(webEntryInfo) == false) return;
                             AppManager.Instance.CurrentWebEntryInfo = webEntryInfo;
-                            ProcessUtils.ExecuteProgram(AppLocator.InternetExplorerPath, url);
+                            ProcessUtils.ExecuteProgram(AppLocator.InternetExplorerPath, uri);
                         }
                         catch (Exception ex)
                         {
@@ -432,10 +420,10 @@ namespace Dionext
                     {
                         try
                         {
-                            if (CheckLevel(webEntryInfo) == false) return;
+                            if (CheckIfWeNeedVPN(webEntryInfo) == false) return;
                             AppManager.Instance.CurrentWebEntryInfo = webEntryInfo;
                             //InPrivate Browsing helps prevent your browsing history, temporary Internet files, form data, cookies, and user names and passwords from being retained by the browser. You can start InPrivate Browsing from the Safety menu, by pressing Ctrl+Shift+P, or from the New Tab page. Internet Explorer will launch a new browser session that won’t keep any information about webpages you visit or searches you perform. Closing the browser window will end your InPrivate Browsing session.
-                            ProcessUtils.ExecuteProgram(AppLocator.InternetExplorerPath, "-private " + url);
+                            ProcessUtils.ExecuteProgram(AppLocator.InternetExplorerPath, "-private " + uri);
                         }
                         catch (Exception ex)
                         {
@@ -452,9 +440,9 @@ namespace Dionext
                     {
                         try
                         {
-                            if (CheckLevel(webEntryInfo) == false) return;
+                            if (CheckIfWeNeedVPN(webEntryInfo) == false) return;
                             AppManager.Instance.CurrentWebEntryInfo = webEntryInfo;
-                            ProcessUtils.ExecuteProgram(AppLocator.ChromePath, url);
+                            ProcessUtils.ExecuteProgram(AppLocator.ChromePath, uri);
                         }
                         catch (Exception ex)
                         {
@@ -468,9 +456,9 @@ namespace Dionext
                     {
                         try
                         {
-                            if (CheckLevel(webEntryInfo) == false) return;
+                            if (CheckIfWeNeedVPN(webEntryInfo) == false) return;
                             AppManager.Instance.CurrentWebEntryInfo = webEntryInfo;
-                            ProcessUtils.ExecuteProgram(AppLocator.ChromePath, "-incognito " + url);
+                            ProcessUtils.ExecuteProgram(AppLocator.ChromePath, "-incognito " + uri);
                         }
                         catch (Exception ex)
                         {
@@ -487,9 +475,9 @@ namespace Dionext
                     {
                         try
                         {
-                            if (CheckLevel(webEntryInfo) == false) return;
+                            if (CheckIfWeNeedVPN(webEntryInfo) == false) return;
                             AppManager.Instance.CurrentWebEntryInfo = webEntryInfo;
-                            ProcessUtils.ExecuteProgram(AppLocator.FirefoxPath, url);
+                            ProcessUtils.ExecuteProgram(AppLocator.FirefoxPath, uri);
                         }
                         catch (Exception ex)
                         {
@@ -498,7 +486,7 @@ namespace Dionext
                     };
                     subs2.Add(menuItem);
                 }
-                if (AppLocator.FirefoxProtablePath != null)
+                if (AppLocator.FirefoxProtablePath != null && File.Exists(AppLocator.FirefoxProtablePath))
                 {
                     menuItem = new ToolStripMenuItem();
                     menuItem.Text = WebAccountLibRes.Open_in_FireFox + " " + WebAccountLibRes.Portable;
@@ -506,9 +494,28 @@ namespace Dionext
                     {
                         try
                         {
-                            if (CheckLevel(webEntryInfo) == false) return;
+                            if (CheckIfWeNeedVPN(webEntryInfo) == false) return;
                             AppManager.Instance.CurrentWebEntryInfo = webEntryInfo;
-                            ProcessUtils.ExecuteProgram(AppLocator.FirefoxProtablePath, url);
+                            ProcessUtils.ExecuteProgram(AppLocator.FirefoxProtablePath, uri);
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.ShowError(ex);
+                        }
+                    };
+                    subs2.Add(menuItem);
+                }
+                if (AppLocator.ChromeProtablePath != null && File.Exists(AppLocator.ChromeProtablePath))
+                {
+                    menuItem = new ToolStripMenuItem();
+                    menuItem.Text = WebAccountLibRes.Open_in_Chrome + " " + WebAccountLibRes.Portable;
+                    menuItem.Click += (s, em) =>
+                    {
+                        try
+                        {
+                            if (CheckIfWeNeedVPN(webEntryInfo) == false) return;
+                            AppManager.Instance.CurrentWebEntryInfo = webEntryInfo;
+                            ProcessUtils.ExecuteProgram(AppLocator.ChromeProtablePath, uri);
                         }
                         catch (Exception ex)
                         {
@@ -525,9 +532,9 @@ namespace Dionext
                     {
                         try
                         {
-                            if (CheckLevel(webEntryInfo) == false) return;
+                            if (CheckIfWeNeedVPN(webEntryInfo) == false) return;
                             AppManager.Instance.CurrentWebEntryInfo = webEntryInfo;
-                            ProcessUtils.ExecuteProgram(AppLocator.OperaPath, url);
+                            ProcessUtils.ExecuteProgram(AppLocator.OperaPath, uri);
                         }
                         catch (Exception ex)
                         {
@@ -544,9 +551,9 @@ namespace Dionext
                     {
                         try
                         {
-                            if (CheckLevel(webEntryInfo) == false) return;
+                            if (CheckIfWeNeedVPN(webEntryInfo) == false) return;
                             AppManager.Instance.CurrentWebEntryInfo = webEntryInfo;
-                            ProcessUtils.ExecuteProgram(AppLocator.SafariPath, url);
+                            ProcessUtils.ExecuteProgram(AppLocator.SafariPath, uri);
                         }
                         catch (Exception ex)
                         {
@@ -563,7 +570,7 @@ namespace Dionext
                     {
                         try
                         {
-                            if (CheckLevel(webEntryInfo) == false) return;
+                            if (CheckIfWeNeedVPN(webEntryInfo) == false) return;
                             AppManager.Instance.CurrentWebEntryInfo = webEntryInfo;
 
                             StringBuilder args = new StringBuilder();
@@ -596,7 +603,7 @@ namespace Dionext
                 menuItem.DropDownItems.AddRange(subs2.ToArray<ToolStripItem>());
                 subs1.Add(menuItem);
 
-                OpenInOtherBrowsers(webEntryInfo, url, subs1);
+                OpenInOtherBrowsers(webEntryInfo, uri, subs1);
         
 
                 //level 0 menu - open 
@@ -621,6 +628,25 @@ namespace Dionext
                     }
                 };
                 subs.Add(menuItem);
+                if (url.Equals(uri) == false)
+                {
+                    //copy uri 
+                    menuItem = new ToolStripMenuItem();
+                    menuItem.Text = WebAccountLibRes.Copy + " " + oTitle + " " + WebAccountLibRes.to_clipboard + ": " + (uri.Length <= 50 ? uri : (uri.Substring(0, 50) + "..."));
+                    menuItem.Click += (s, em) =>
+                    {
+                        try
+                        {
+                            Clipboard.Clear();
+                            Clipboard.SetText(uri, TextDataFormat.Text);
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.ShowError(ex);
+                        }
+                    };
+                    subs.Add(menuItem);
+                }
             }
 
             //////////////login password 
@@ -670,10 +696,10 @@ namespace Dionext
         {
 
             ViewType viewType = ViewType.NONE;
-            if (new Uri(path).IsFile == false) viewType = ViewType.IE;
+            if (new Uri(path).IsFile == false) viewType = ViewType.CefBrowser;
             else
             {
-                if (FileUtils.CheckPathIsDirectory(path)) viewType = ViewType.IE;
+                if (FileUtils.CheckPathIsDirectory(path)) viewType = ViewType.CefBrowser;
                 else
                 {
                     FileInfo fi = new FileInfo(path);

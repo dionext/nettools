@@ -16,10 +16,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dionext;
 using Newtonsoft.Json;
-using FrwSoftware;
 
-namespace Dionext
+
+namespace FrwSoftware
 {
     [JDisplayName(typeof(WebAccountLibRes), "JWeb_JWeb")]
     [JEntity(ImageName = "fr_web", Resource = typeof(WebAccountLibRes))]
@@ -36,15 +37,12 @@ namespace Dionext
         [JDisplayName(typeof(WebAccountLibRes), "JWeb_Url")]
         public string Url { get; set; }
 
-        [JDisplayName(typeof(WebAccountLibRes), "JWeb_SrcId")]
-        public string SrcId { get; set; }
-
         [JDisplayName(typeof(WebAccountLibRes), "JWeb_Info")]
         [JText]
         public string Info { get; set; }
 
-        [JDisplayName(typeof(WebAccountLibRes), "JWeb_IsArchive")]
-        public bool IsArchive
+        [JDisplayName(typeof(WebAccountLibRes), "JWeb_IsArchived")]
+        public bool IsArchived
         {
             get; set;
         }
@@ -53,19 +51,39 @@ namespace Dionext
         [JManyToOne]
         public JWebCategory JWebCategory { get; set; }
 
+        [JDisplayName("IMAP host")]
+        public string IMAPHost { get; set; }
+
+        [JDisplayName("SMTP host")]
+        public string SMTPHost { get; set; }
+
+        [JDisplayName("POP3 host")]
+        public string POP3Host { get; set; }
+
+
         ////////////
         [JIgnore, JsonIgnore]
         public WebEntryInfo WebEntryInfo
         {
             get
             {
-                WebEntryInfo w = new WebEntryInfo() { Url = Url };
-                /*
-                if (JAccounts != null && JAccounts.Count == 1)
+                WebEntryInfo w = null;
+                IList <JWebAccount> aList = Dm.Instance.ResolveOneToManyRelation<JWebAccount>(this);
+                if (aList != null && aList.Count == 1)
                 {
-                    w.Login = JAccounts[0].Login;
-                    w.Password = JAccounts[0].Password;
-                }*/
+                    JWebAccount a = aList.FirstOrDefault();
+                    if (a != null)
+                    {
+                        w = a.WebEntryInfo;
+                        //w.Login = a.Login;
+                        //w.Password = a.Password;
+                    }
+                }
+                if (w == null)
+                {
+                    w = new WebEntryInfo() { Url = Url };
+                }
+
                 return w;
             }
         }

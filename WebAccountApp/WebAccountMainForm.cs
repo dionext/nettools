@@ -44,20 +44,39 @@ namespace Dionext
             //dict
             groupItem = new ToolStripMenuItem(VpnSelectorLibRes.VPN);
             menuItemDict.DropDownItems.Add(groupItem);
-            CreateMainMenuItemForEntityType(groupItem, typeof(FProxyProvider));
-            CreateMainMenuItemForEntityType(groupItem, typeof(FProxyServer));
-            groupItem = new ToolStripMenuItem(VpnSelectorLibRes.Service);
-            menuItemDict.DropDownItems.Add(groupItem);
-            CreateMainMenuItemForEntityType(groupItem, typeof(JCountry));
+            CreateMainMenuItemForEntityType(groupItem, typeof(JVPNProvider));
+            CreateMainMenuItemForEntityType(groupItem, typeof(JVPNServer));
             groupItem = new ToolStripMenuItem(WebAccountLibRes.Web);
             menuItemDict.DropDownItems.Add(groupItem);
-            CreateMainMenuItemForWindowType(groupItem, WebAccountLibRes.Web__tree_, typeof(FWebTreeWindow));
+            CreateMainMenuItemForWindowType(groupItem, WebAccountLibRes.Web__tree_, typeof(JWebTreeWindow));
             CreateMainMenuItemForEntityType(groupItem, typeof(JWeb));
-            CreateMainMenuItemForEntityType(groupItem, typeof(FWebAccount));
+            CreateMainMenuItemForEntityType(groupItem, typeof(JWebAccount));
             groupItem = new ToolStripMenuItem(VpnSelectorLibRes.Service);
             menuItemDict.DropDownItems.Add(groupItem);
             CreateMainMenuItemForEntityType(groupItem, typeof(JCountry));
             CreateMainMenuItemForEntityType(groupItem, typeof(JUserAgent));
+
+            groupItem = new ToolStripMenuItem(VpnSelectorLibRes.Service);
+            menuItemDict.DropDownItems.Add(groupItem);
+            CreateMainMenuItemForEntityType(groupItem, typeof(JCountry));
+            CreateMainMenuItemForEntityType(groupItem, typeof(JWorldCurrency));
+            CreateMainMenuItemForEntityType(groupItem, typeof(JUserAgent));
+            groupItem = new ToolStripMenuItem(WebAccountLibRes.Phones);
+            menuItemDict.DropDownItems.Add(groupItem);
+            CreateMainMenuItemForEntityType(groupItem, typeof(JMobileOperator));
+            CreateMainMenuItemForEntityType(groupItem, typeof(JPhoneNumber));
+
+            groupItem = new ToolStripMenuItem(WebAccountLibRes.Mail_and_messangers);
+            menuItemDict.DropDownItems.Add(groupItem);
+            CreateMainMenuItemForEntityType(groupItem, typeof(JMailAccount));
+            groupItem.DropDownItems.Add(new ToolStripSeparator());
+
+            groupItem = new ToolStripMenuItem(WebAccountLibRes.Finance);
+            menuItemDict.DropDownItems.Add(groupItem);
+            CreateMainMenuItemForEntityType(groupItem, typeof(JMoneyBankAcc));
+
+            CreateMainMenuItemForEntityType(menuItemDict, typeof(JActor));
+
             //tools
             CreateToolsMenuItems(menuItemTools, toolBar, statusBar);
             //file

@@ -22,20 +22,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CefSharp;
 using CefSharp.Example.Proxy;
+using CefSharp.WinForms;
 using FrwSoftware;
 
 namespace EmbeddedBrowser
 {
     public class EmbeddedBrowserHelper
     {
-        static public string BROWSER_CACHE_PATH = "browserCommonCache";
 
         public static bool IsInitilized { get; set; }
 
 
         // Use when debugging the actual SubProcess, to make breakpoints etc. inside that project work.
         private static readonly bool DebuggingSubProcess = Debugger.IsAttached;
-
+        public static bool MultiThreadedMessageLoop { get; set; } = true;
         public static void InitIfNeed()
         {
             if (IsInitilized == false)
@@ -58,7 +58,7 @@ namespace EmbeddedBrowser
                 //http://peter.sh/experiments/chromium-command-line-switches/
                 */
                 var settings = new CefSettings();
-
+                
                 JSetting setting = FrwConfig.Instance.CreatePropertyIfNotExist(new JSetting()
                 {
                     Name = "MainApp.userAgent",
@@ -79,12 +79,27 @@ namespace EmbeddedBrowser
                     //    "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 7.0; InfoPath.3; .NET CLR 3.1.40767; Trident/6.0; en-IN)",
                     //    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
 
-                    settings.UserAgent = @"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36";
+
+                    //setting recomended to entrance to google account 
+                    //https://www.magpcss.org/ceforum/viewtopic.php?f=10&t=16717
+                    //to test use http://whatsmyuseragent.org/
+                    settings.UserAgent = @"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101 Firefox/68.0";//  @"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36";
                 }
                 //For Windows 7 and above, best to include relevant app.manifest entries as well
                 //Cef.EnableHighDPISupport(); - todo test it 
 
-                if (!Cef.Initialize(settings))
+            
+                IBrowserProcessHandler browserProcessHandler;
+                //if (MultiThreadedMessageLoop)
+                //{
+                    browserProcessHandler = new BrowserProcessHandler();
+                //}
+                // Use when debugging the actual SubProcess, to make breakpoints etc. inside that project work.
+                //private static readonly 
+                bool DebuggingSubProcess = Debugger.IsAttached;
+                bool sperformDependencyCheck = !DebuggingSubProcess;
+
+                if (!Cef.Initialize(settings, sperformDependencyCheck, browserProcessHandler: browserProcessHandler))
                 {
                     throw new Exception("Unable to Initialize Cef");
                 }

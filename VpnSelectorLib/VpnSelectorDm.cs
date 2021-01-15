@@ -28,24 +28,28 @@ namespace Dionext
     }
     public class VpnSelectorDm : Dm
     {
+        static public string MyLocalIP { get; set; }
+        //static public JIPAddress MyExtJIPAddress { get; set; }
+        static public string MyMac { get; set; }
+        static public string DnsIP { get; set; }
+        static public string DnsMac { get; set; }
+
         override protected void InitDictionaries()
         {
             base.InitDictionaries();
 
-            BaseProxyServer.CurrentType = typeof(FProxyServer);
-            BaseProxyProvider.CurrentType = typeof(FProxyProvider);
 
             JDictionary dict = null;
             dict = new JDictionary() { Id = VpnDictNames.RasEncryptionType };
              dictionaries.Add(dict);
-            dict.Items.Add(new JDictItem() { Key = ProxyEncryptionTypeEnum.None.ToString(), Text = "None" });
-            dict.Items.Add(new JDictItem() { Key = ProxyEncryptionTypeEnum.Optional.ToString(), Text = "Optional" });
-            dict.Items.Add(new JDictItem() { Key = ProxyEncryptionTypeEnum.Require.ToString(), Text = "Require" });
-            dict.Items.Add(new JDictItem() { Key = ProxyEncryptionTypeEnum.RequireMax.ToString(), Text = "RequireMax" });
+            dict.Items.Add(new JDictItem() { Key = VPNEncryptionTypeEnum.None.ToString(), Text = "None" });
+            dict.Items.Add(new JDictItem() { Key = VPNEncryptionTypeEnum.Optional.ToString(), Text = "Optional" });
+            dict.Items.Add(new JDictItem() { Key = VPNEncryptionTypeEnum.Require.ToString(), Text = "Require" });
+            dict.Items.Add(new JDictItem() { Key = VPNEncryptionTypeEnum.RequireMax.ToString(), Text = "RequireMax" });
 
             dict = new JDictionary() { Id = VpnDictNames.VpnProtocol };
-            dict.Items.Add(new JDictItem() { Key = ProxyProtocolTypeEnum.PPTP.ToString() });
-            dict.Items.Add(new JDictItem() { Key = ProxyProtocolTypeEnum.L2TP.ToString() });
+            dict.Items.Add(new JDictItem() { Key = VPNProtocolTypeEnum.PPTP.ToString() });
+            dict.Items.Add(new JDictItem() { Key = VPNProtocolTypeEnum.L2TP.ToString() });
             Dm.Instance.AddDictionary(dict);
 
         }

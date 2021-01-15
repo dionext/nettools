@@ -19,7 +19,7 @@ namespace Dionext {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class WebAccountLibRes {
@@ -61,7 +61,16 @@ namespace Dionext {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  /private in memory cache/.
+        ///   Looks up a localized string similar to /persistent common cache/.
+        /// </summary>
+        public static string @__common_cache {
+            get {
+                return ResourceManager.GetString("__common_cache", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  /in memory cache/.
         /// </summary>
         public static string @__private_in_memory_cache_ {
             get {
@@ -70,7 +79,7 @@ namespace Dionext {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  /private persistent cache/.
+        ///   Looks up a localized string similar to  /persistent entity cache/.
         /// </summary>
         public static string @__private_persistent_cache_ {
             get {
@@ -79,11 +88,20 @@ namespace Dionext {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  /private persistent cache (cleared)/.
+        ///   Looks up a localized string similar to  /persistent cache (cleared)/.
         /// </summary>
         public static string @__private_persistent_cache__cleared__ {
             get {
                 return ResourceManager.GetString("__private_persistent_cache__cleared__", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Required VPN connection. It is filled in if for this entity it is recommended to go online through a specific VPN connection.
+        /// </summary>
+        public static string AllowedVPNServer {
+            get {
+                return ResourceManager.GetString("AllowedVPNServer", resourceCulture);
             }
         }
         
@@ -102,6 +120,69 @@ namespace Dionext {
         public static string BaseWebAccount {
             get {
                 return ResourceManager.GetString("BaseWebAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Additional and old bank accounts.
+        /// </summary>
+        public static string BaseWebAccount_AddJMoneyBankAcc {
+            get {
+                return ResourceManager.GetString("BaseWebAccount_AddJMoneyBankAcc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to App Password.
+        /// </summary>
+        public static string BaseWebAccount_AppPassword {
+            get {
+                return ResourceManager.GetString("BaseWebAccount_AppPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control Answer.
+        /// </summary>
+        public static string BaseWebAccount_ControlAns {
+            get {
+                return ResourceManager.GetString("BaseWebAccount_ControlAns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control Question.
+        /// </summary>
+        public static string BaseWebAccount_ControlQ {
+            get {
+                return ResourceManager.GetString("BaseWebAccount_ControlQ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Entrance with oAuth.
+        /// </summary>
+        public static string BaseWebAccount_EntranceByOAuth {
+            get {
+                return ResourceManager.GetString("BaseWebAccount_EntranceByOAuth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign of &quot;expired&quot;. If the account is considered expired (due to lack of payment or lack of activity..
+        /// </summary>
+        public static string BaseWebAccount_Expired {
+            get {
+                return ResourceManager.GetString("BaseWebAccount_Expired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registration validity period. The period after which the account is expired (due to lack of payment or lack of activity)..
+        /// </summary>
+        public static string BaseWebAccount_ExpiredPeriod {
+            get {
+                return ResourceManager.GetString("BaseWebAccount_ExpiredPeriod", resourceCulture);
             }
         }
         
@@ -126,9 +207,9 @@ namespace Dionext {
         /// <summary>
         ///   Looks up a localized string similar to Archived.
         /// </summary>
-        public static string BaseWebAccount_IsArchive {
+        public static string BaseWebAccount_IsArchived {
             get {
-                return ResourceManager.GetString("BaseWebAccount_IsArchive", resourceCulture);
+                return ResourceManager.GetString("BaseWebAccount_IsArchived", resourceCulture);
             }
         }
         
@@ -142,6 +223,42 @@ namespace Dionext {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Actor.
+        /// </summary>
+        public static string BaseWebAccount_JActor {
+            get {
+                return ResourceManager.GetString("BaseWebAccount_JActor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail confirmation address.
+        /// </summary>
+        public static string BaseWebAccount_JMailAccount {
+            get {
+                return ResourceManager.GetString("BaseWebAccount_JMailAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bank account.
+        /// </summary>
+        public static string BaseWebAccount_JMoneyBankAcc {
+            get {
+                return ResourceManager.GetString("BaseWebAccount_JMoneyBankAcc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmation phone.
+        /// </summary>
+        public static string BaseWebAccount_JPhoneNumber {
+            get {
+                return ResourceManager.GetString("BaseWebAccount_JPhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Web.
         /// </summary>
         public static string BaseWebAccount_JWeb {
@@ -151,11 +268,29 @@ namespace Dionext {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The date of the last confirmation of activity. Used to control the &quot;expiration&quot; of the account.
+        /// </summary>
+        public static string BaseWebAccount_LastRenewDate {
+            get {
+                return ResourceManager.GetString("BaseWebAccount_LastRenewDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         public static string BaseWebAccount_Login {
             get {
                 return ResourceManager.GetString("BaseWebAccount_Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OAuth account. Third-party account that must be used to access this resource (via OAuth protocol).
+        /// </summary>
+        public static string BaseWebAccount_OAuthWebAccount {
+            get {
+                return ResourceManager.GetString("BaseWebAccount_OAuthWebAccount", resourceCulture);
             }
         }
         
@@ -187,6 +322,51 @@ namespace Dionext {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clear browser cache for entity.
+        /// </summary>
+        public static string Clear_browser_cache_for_entity {
+            get {
+                return ResourceManager.GetString("Clear_browser_cache_for_entity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear browser cache for entity actor.
+        /// </summary>
+        public static string Clear_browser_cache_for_entity_actor {
+            get {
+                return ResourceManager.GetString("Clear_browser_cache_for_entity_actor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear common browser cache.
+        /// </summary>
+        public static string Clear_common_browser_cache {
+            get {
+                return ResourceManager.GetString("Clear_common_browser_cache", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click &quot;OK&quot; to ignore the warning and continue. Click &quot;Cancel&quot; to cancel.
+        /// </summary>
+        public static string Click_OK_to_ignore_the_warning_and_continue_Click_Cancel_to_cancel {
+            get {
+                return ResourceManager.GetString("Click_OK_to_ignore_the_warning_and_continue_Click_Cancel_to_cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click &quot;Yes&quot; to connect to the desired VPN server. Click &quot;No&quot; to ignore the warning and continue. Click &quot;Cancel&quot; to cancel..
+        /// </summary>
+        public static string Click_Yes_to_connect_to_the_desired_VPN_server {
+            get {
+                return ResourceManager.GetString("Click_Yes_to_connect_to_the_desired_VPN_server", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Copy.
         /// </summary>
         public static string Copy {
@@ -214,6 +394,53 @@ namespace Dionext {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current VPN connection is not established..
+        /// </summary>
+        public static string Current_VPN_connection_is_not_established {
+            get {
+                return ResourceManager.GetString("Current_VPN_connection_is_not_established", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finance.
+        /// </summary>
+        public static string Finance {
+            get {
+                return ResourceManager.GetString("Finance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For this entity, you need access to the Internet through a specific VPN connection..
+        /// </summary>
+        public static string For_this_entity_you_need_access_to_the_Internet_through_a_specific_VPN {
+            get {
+                return ResourceManager.GetString("For_this_entity_you_need_access_to_the_Internet_through_a_specific_VPN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap fr_actor {
+            get {
+                object obj = ResourceManager.GetObject("fr_actor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap fr_mailaccount {
+            get {
+                object obj = ResourceManager.GetObject("fr_mailaccount", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap fr_web {
@@ -229,6 +456,16 @@ namespace Dionext {
         public static System.Drawing.Bitmap fr_webaccount {
             get {
                 object obj = ResourceManager.GetObject("fr_webaccount", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap fr_webaccount1 {
+            get {
+                object obj = ResourceManager.GetObject("fr_webaccount1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -271,6 +508,132 @@ namespace Dionext {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Attachments.
+        /// </summary>
+        public static string JPhoneNumber_Attachments {
+            get {
+                return ResourceManager.GetString("JPhoneNumber_Attachments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Баланс.
+        /// </summary>
+        public static string JPhoneNumber_Balance {
+            get {
+                return ResourceManager.GetString("JPhoneNumber_Balance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Страна.
+        /// </summary>
+        public static string JPhoneNumber_Country {
+            get {
+                return ResourceManager.GetString("JPhoneNumber_Country", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Information.
+        /// </summary>
+        public static string JPhoneNumber_Info {
+            get {
+                return ResourceManager.GetString("JPhoneNumber_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Archived.
+        /// </summary>
+        public static string JPhoneNumber_IsArchived {
+            get {
+                return ResourceManager.GetString("JPhoneNumber_IsArchived", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Actor.
+        /// </summary>
+        public static string JPhoneNumber_JActor {
+            get {
+                return ResourceManager.GetString("JPhoneNumber_JActor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mobile operator.
+        /// </summary>
+        public static string JPhoneNumber_JMobileOperator {
+            get {
+                return ResourceManager.GetString("JPhoneNumber_JMobileOperator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Identifier.
+        /// </summary>
+        public static string JPhoneNumber_JPhoneNumberId {
+            get {
+                return ResourceManager.GetString("JPhoneNumber_JPhoneNumberId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string JPhoneNumber_Login {
+            get {
+                return ResourceManager.GetString("JPhoneNumber_Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number.
+        /// </summary>
+        public static string JPhoneNumber_Number {
+            get {
+                return ResourceManager.GetString("JPhoneNumber_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Owner.
+        /// </summary>
+        public static string JPhoneNumber_Owner {
+            get {
+                return ResourceManager.GetString("JPhoneNumber_Owner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string JPhoneNumber_Password {
+            get {
+                return ResourceManager.GetString("JPhoneNumber_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Назначение.
+        /// </summary>
+        public static string JPhoneNumber_Purpose {
+            get {
+                return ResourceManager.GetString("JPhoneNumber_Purpose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WebEntryInfo.
+        /// </summary>
+        public static string JPhoneNumber_WebEntryInfo {
+            get {
+                return ResourceManager.GetString("JPhoneNumber_WebEntryInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Information.
         /// </summary>
         public static string JWeb_Info {
@@ -282,9 +645,9 @@ namespace Dionext {
         /// <summary>
         ///   Looks up a localized string similar to Archived.
         /// </summary>
-        public static string JWeb_IsArchive {
+        public static string JWeb_IsArchived {
             get {
-                return ResourceManager.GetString("JWeb_IsArchive", resourceCulture);
+                return ResourceManager.GetString("JWeb_IsArchived", resourceCulture);
             }
         }
         
@@ -384,6 +747,15 @@ namespace Dionext {
         public static string JWebCategory_SrcId {
             get {
                 return ResourceManager.GetString("JWebCategory_SrcId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mail and messangers.
+        /// </summary>
+        public static string Mail_and_messangers {
+            get {
+                return ResourceManager.GetString("Mail_and_messangers", resourceCulture);
             }
         }
         
@@ -523,6 +895,15 @@ namespace Dionext {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Phones.
+        /// </summary>
+        public static string Phones {
+            get {
+                return ResourceManager.GetString("Phones", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to portable.
         /// </summary>
         public static string Portable {
@@ -550,20 +931,29 @@ namespace Dionext {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The current VPN connection does not match the one specified for this entity..
+        /// </summary>
+        public static string The_current_VPN_connection_does_not_match {
+            get {
+                return ResourceManager.GetString("The_current_VPN_connection_does_not_match", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This VPN connection has not been established and was not found among the possible connections..
+        /// </summary>
+        public static string This_VPN_connection_has_not_been_established {
+            get {
+                return ResourceManager.GetString("This_VPN_connection_has_not_been_established", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to to clipboard.
         /// </summary>
         public static string to_clipboard {
             get {
                 return ResourceManager.GetString("to_clipboard", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to To generate new password press &quot;Yes&quot; .
-        /// </summary>
-        public static string To_generate_new_password_press__Yes__ {
-            get {
-                return ResourceManager.GetString("To_generate_new_password_press__Yes__", resourceCulture);
             }
         }
         

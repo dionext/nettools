@@ -23,7 +23,7 @@ using FrwSoftware;
 
 namespace EmbeddedBrowser
 {
-    public class WinFormsRequestHandler : RequestHandler
+    public class WinFormsRequestHandler : JustRequestHandler
     {
         private Action<string, int?> openNewTab;
 

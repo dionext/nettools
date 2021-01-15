@@ -25,6 +25,7 @@ using CefSharp.WinForms;
 
 using System.IO;
 using FrwSoftware;
+using System.Text;
 
 namespace EmbeddedBrowser
 {
@@ -64,16 +65,15 @@ namespace EmbeddedBrowser
             //https://stackoverflow.com/questions/34549565/separate-cache-per-browser
             ChromiumWebBrowser browser = null;
             if (WebEntryInfo.BrowserPrivateType == BrowserPrivateType.COMMON_CACHE
-               || WebEntryInfo.BrowserPrivateType == BrowserPrivateType.PERSONAL_OLD_DISK_CACHE 
-               || WebEntryInfo.BrowserPrivateType == BrowserPrivateType.PERSONAL_NEW_DISK_CACHE)
+               || WebEntryInfo.BrowserPrivateType == BrowserPrivateType.PERSONAL_OLD_DISK_CACHE) 
             {
                 if (WebEntryInfo.CachePath != null)
                 {
-                    if (WebEntryInfo.BrowserPrivateType == BrowserPrivateType.PERSONAL_NEW_DISK_CACHE)
-                    {
-                        FileUtils.CreateOrClearDirectory(WebEntryInfo.CachePath);
-                    }
-                    else if (WebEntryInfo.BrowserPrivateType == BrowserPrivateType.PERSONAL_OLD_DISK_CACHE
+                    //if (WebEntryInfo.BrowserPrivateType == BrowserPrivateType.PERSONAL_NEW_DISK_CACHE)
+                    //{
+                     //   FileUtils.CreateOrClearDirectory(WebEntryInfo.CachePath);
+                    //}
+                    if (WebEntryInfo.BrowserPrivateType == BrowserPrivateType.PERSONAL_OLD_DISK_CACHE
                         || WebEntryInfo.BrowserPrivateType == BrowserPrivateType.COMMON_CACHE)
                     {
                         FileUtils.CreateDirectory(WebEntryInfo.CachePath);
@@ -82,7 +82,13 @@ namespace EmbeddedBrowser
                 else throw new NotSupportedException();
                 BrowserSettings browserSettings = new BrowserSettings();
                 RequestContextSettings requestContextSettings = new RequestContextSettings { CachePath = WebEntryInfo.CachePath };
-                var requestContext = new RequestContext(requestContextSettings);
+                //Console.WriteLine("======= WebEntryInfo.CachePath = " + WebEntryInfo.CachePath);
+                //Console.WriteLine("======= browserSettings.ApplicationCache = " + browserSettings.ApplicationCache);
+                
+                
+                //browserSettings.ApplicationCache = CefState.
+                //Cef.GetGlobalCookieManager().VisitAllCookies
+              var requestContext = new RequestContext(requestContextSettings);
                 browser = new ChromiumWebBrowser(url)
                 {
                     BrowserSettings = browserSettings,
@@ -102,7 +108,7 @@ namespace EmbeddedBrowser
                     Dock = DockStyle.Fill
                 };
             }
-
+            
             browserPanel.Controls.Add(browser);
             Browser = browser;
 
@@ -134,7 +140,15 @@ namespace EmbeddedBrowser
             browser.LoadError += OnLoadError;
             browser.RenderProcessMessageHandler = new RenderProcessMessageHandler();
             browser.DisplayHandler = new DisplayHandler();
+      
 
+            //Handling DevTools docked inside the same window requires 
+            //an instance of the LifeSpanHandler all the window events,
+            //e.g. creation, resize, moving, closing etc.
+            browser.LifeSpanHandler = new LifeSpanHandler(openNewTab: openNewTab, openPopupsAsTabs: true);
+
+            //!!!!!!!!!!   Console.WriteLine(" browser.RequestContext.CachePath = " + browser.RequestContext.CachePath);
+            
             //var version = String.Format(EmbeddedBrowserControlRes.Chromium___0___CEF___1___CefSharp___2_, Cef.ChromiumVersion, Cef.CefVersion, Cef.CefSharpVersion);
             var version = String.Format(EmbeddedBrowserControlRes.Chromium___0, Cef.ChromiumVersion);
             DisplayOutput(version);
@@ -179,12 +193,36 @@ namespace EmbeddedBrowser
             }
             else
             {
-                cookieManager = ((ChromiumWebBrowser)Browser).RequestContext.GetDefaultCookieManager(null);
+                cookieManager = ((ChromiumWebBrowser)Browser).RequestContext.GetCookieManager(null);
             }
             if (cookieManager != null)
             {
                 cookieManager.DeleteCookies(url, name);
             }
+        }
+        public void ShowCookies(string url, string name, bool global)
+        {
+            ICookieManager cookieManager = null;
+            if (global)
+            {
+                cookieManager = Cef.GetGlobalCookieManager();
+            }
+            else
+            {
+                cookieManager = ((ChromiumWebBrowser)Browser).RequestContext.GetCookieManager(null);
+            }
+            if (cookieManager != null)
+            {
+                var visitor = new CookieMonster();
+                if (cookieManager.VisitAllCookies(visitor))
+                    visitor.WaitForAllCookies();
+                var sb = new StringBuilder();
+                foreach (var nameValue in visitor.NamesValues)
+                    sb.AppendLine(nameValue.Item1 + " = " + nameValue.Item2);
+                //MessageBox.Show(sb.ToString());
+                Console.WriteLine(sb.ToString());
+            }
+
         }
         /*
         public void GetCookiesInfo()
@@ -300,7 +338,7 @@ namespace EmbeddedBrowser
         [return: MarshalAs(UnmanagedType.Bool)]
         [DllImport("user32.dll", SetLastError = true)]
         static extern bool PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
-
+        /*
         private void OnIsBrowserInitializedChanged(object sender, IsBrowserInitializedChangedEventArgs args)
         {
             if (args.IsBrowserInitialized)
@@ -395,7 +433,7 @@ namespace EmbeddedBrowser
                 }
             }
         }
-
+        */
         private void DisplayOutput(string output)
         {
             this.InvokeOnUiThreadIfRequired(() => outputLabel.Text = output);
@@ -632,6 +670,98 @@ namespace EmbeddedBrowser
                     throw new Exception("Unexpected failure of calling CEF->GetZoomLevelAsync: " + previous.Exception.ToString());
                 }
             }, TaskContinuationOptions.HideScheduler);
+
+        }
+        /*
+//Example of DevTools docked within the existing UserControl,
+//in this example it's hosted in a Panel with a SplitContainer
+public void ShowDevToolsDocked()
+{
+    if (browserSplitContainer.Panel2Collapsed)
+    {
+        browserSplitContainer.Panel2Collapsed = false;
+    }
+
+    //Find devToolsControl in Controls collection
+    DevToolsContainerControl devToolsControl = null;
+    devToolsControl = browserSplitContainer.Panel2.Controls.Find(nameof(devToolsControl), false).FirstOrDefault() as DevToolsContainerControl;
+
+    if (devToolsControl == null || devToolsControl.IsDisposed)
+    {
+        devToolsControl = new DevToolsContainerControl()
+        {
+            Name = nameof(devToolsControl),
+            Dock = DockStyle.Fill
+        };
+
+        EventHandler devToolsPanelDisposedHandler = null;
+        devToolsPanelDisposedHandler = (s, e) =>
+        {
+            browserSplitContainer.Panel2.Controls.Remove(devToolsControl);
+            browserSplitContainer.Panel2Collapsed = true;
+            devToolsControl.Disposed -= devToolsPanelDisposedHandler;
+        };
+
+        //Subscribe for devToolsPanel dispose event
+        devToolsControl.Disposed += devToolsPanelDisposedHandler;
+
+        //Add new devToolsPanel instance to Controls collection
+        browserSplitContainer.Panel2.Controls.Add(devToolsControl);
+    }
+
+    if (!devToolsControl.IsHandleCreated)
+    {
+        //It's very important the handle for the control is created prior to calling
+        //SetAsChild, if the handle hasn't been created then manually call CreateControl();
+        //This code is not required for this example, it's left here for demo purposes.
+        devToolsControl.CreateControl();
+    }
+
+    //Devtools will be a child of the DevToolsContainerControl
+    //DevToolsContainerControl is a simple custom Control that's only required
+    //when CefSettings.MultiThreadedMessageLoop = false so arrow/tab key presses
+    //are forwarded to DevTools correctly.
+    var rect = devToolsControl.ClientRectangle;
+    var windowInfo = new WindowInfo();
+    windowInfo.SetAsChild(devToolsControl.Handle, rect.Left, rect.Top, rect.Right, rect.Bottom);
+    Browser.GetBrowserHost().ShowDevTools(windowInfo);
+}
+public Task<bool> CheckIfDevToolsIsOpenAsync()
+{
+    return Cef.UIThreadTaskFactory.StartNew(() =>
+    {
+        return Browser.GetBrowserHost().HasDevTools;
+    });
+}
+*/
+
+    }
+    class CookieMonster : ICookieVisitor
+    {
+        readonly List<Tuple<string, string>> cookies = new List<Tuple<string, string>>();
+        readonly ManualResetEvent gotAllCookies = new ManualResetEvent(false);
+
+        public bool Visit(Cookie cookie, int count, int total, ref bool deleteCookie)
+        {
+            cookies.Add(new Tuple<string, string>(cookie.Name, cookie.Value));
+
+            if (count == total - 1)
+                gotAllCookies.Set();
+
+            return true;
+        }
+
+        public void WaitForAllCookies()
+        {
+            gotAllCookies.WaitOne();
+        }
+
+        public IEnumerable<Tuple<string, string>> NamesValues
+        {
+            get { return cookies; }
+        }
+        public virtual void Dispose()
+        {
 
         }
     }

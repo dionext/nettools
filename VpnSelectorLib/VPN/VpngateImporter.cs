@@ -47,7 +47,7 @@ namespace Dionext
         //todo final message
         private static void ParseDirect(string s)
         {
-            List<BaseProxyServer> tmpList = new List<BaseProxyServer>();
+            List<JVPNServer> tmpList = new List<JVPNServer>();
             IList cl = Dm.Instance.FindAll(typeof(JCountry));
             TextReader reader = new StringReader(s);
 
@@ -61,7 +61,6 @@ namespace Dionext
                 HtmlNodeCollection trs = table.SelectNodes("tr");
                 if (trs != null)
                 {
-                    //BaseProxyServer p = null;
                     bool firstTr = true;
                     foreach (HtmlNode tr in trs)
                     {
@@ -95,7 +94,7 @@ namespace Dionext
                             }
                             if (valid)
                             {
-                                BaseProxyServer p = (BaseProxyServer)Activator.CreateInstance(BaseProxyServer.CurrentType);
+                                JVPNServer p = (JVPNServer)Activator.CreateInstance(typeof(JVPNServer));
                                 tdnum = 0;
                                 foreach (HtmlNode td in tds)
                                 {
@@ -164,28 +163,28 @@ namespace Dionext
                 }
             }
 
-            List<BaseProxyServer> newList = new List<BaseProxyServer>();
-            List<BaseProxyServer> sameList = new List<BaseProxyServer>();
-            List<BaseProxyServer> restoredList = new List<BaseProxyServer>();
-            List<BaseProxyServer> archivedList = new List<BaseProxyServer>();
+            List<JVPNServer> newList = new List<JVPNServer>();
+            List<JVPNServer> sameList = new List<JVPNServer>();
+            List<JVPNServer> restoredList = new List<JVPNServer>();
+            List<JVPNServer> archivedList = new List<JVPNServer>();
 
-            BaseProxyProvider pp = (BaseProxyProvider)Dm.Instance.Find(BaseProxyProvider.CurrentType, "5");
+            JVPNProvider pp = (JVPNProvider)Dm.Instance.Find(typeof(JVPNProvider), "5");
             foreach (var p0 in tmpList)
             {
                 //Console.WriteLine(ModelHelper.ModelPropertyList(p0, "\n", null, null));
                 //Console.WriteLine("==================================================");
 
-                BaseProxyServer foundSame = null;
-                IList oldList = Dm.Instance.FindAll(BaseProxyServer.CurrentType);
+                JVPNServer foundSame = null;
+                IList oldList = Dm.Instance.FindAll(typeof(JVPNServer));
                 foreach (var o in oldList)
                 {
-                    BaseProxyServer oldP = (BaseProxyServer)o;
-                    if (oldP.GetProxyProvider() != null && oldP.GetProxyProvider().Equals(pp) && oldP.Url.Equals(p0.Url))
+                    JVPNServer oldP = (JVPNServer)o;
+                    if (oldP.JVPNProvider != null && oldP.JVPNProvider.Equals(pp) && oldP.Url.Equals(p0.Url))
                     {
                         foundSame = oldP;
-                        if (oldP.IsArchive == true)
+                        if (oldP.IsArchived == true)
                         {
-                            oldP.IsArchive = false;
+                            oldP.IsArchived = false;
                             restoredList.Add(oldP);
                             Dm.Instance.SaveObject(oldP);
                         }
@@ -195,13 +194,13 @@ namespace Dionext
                 if (foundSame == null)
                 {
                
-                    BaseProxyServer p = (BaseProxyServer)Dm.Instance.EmptyObject(BaseProxyServer.CurrentType, null);
-                    p.SetProxyProvider(pp);
+                    JVPNServer p = (JVPNServer)Dm.Instance.EmptyObject(typeof(JVPNServer), null);
+                    p.JVPNProvider = pp;
                     p.Url = p0.Url;
                     p.JCountry = p0.JCountry;
                     p.AvailableProtocols = new List<string>();
-                    p.AvailableProtocols.Add(ProxyProtocolTypeEnum.L2TP.ToString());
-                    p.EncryptionType = ProxyEncryptionTypeEnum.Require.ToString();
+                    p.AvailableProtocols.Add(VPNProtocolTypeEnum.L2TP.ToString());
+                    p.EncryptionType = VPNEncryptionTypeEnum.Require.ToString();
 
                     Dm.Instance.SaveObject(p);
                     newList.Add(p);
@@ -213,11 +212,11 @@ namespace Dionext
                 }
             }
             //reverse search 
-            IList oldList2 = Dm.Instance.FindAll(BaseProxyServer.CurrentType);
+            IList oldList2 = Dm.Instance.FindAll(typeof(JVPNServer));
             foreach (var o in oldList2)
             {
-                BaseProxyServer oldP = (BaseProxyServer)o;
-                if (oldP.GetProxyProvider() != null && oldP.GetProxyProvider().Equals(pp))
+                JVPNServer oldP = (JVPNServer)o;
+                if (oldP.JVPNProvider != null && oldP.JVPNProvider.Equals(pp))
                 {
                     bool found = false;
                     foreach (var p0 in tmpList)
@@ -227,9 +226,9 @@ namespace Dionext
                             found = true;
                         }
                     }
-                    if (!found && oldP.IsArchive == false)
+                    if (!found && oldP.IsArchived == false)
                     {
-                        oldP.IsArchive = true;
+                        oldP.IsArchived = true;
                         archivedList.Add(oldP);
                     }
                 }

@@ -1,0 +1,10 @@
+﻿[
+  {
+    "JVPNProviderId": "5",
+    "Name": "vpngate.net",
+    "Url": "http://www.vpngate.net",
+    "VPNLogin": "vpn",
+    "VPNPassword": "vpn",
+    "UserPresharedKey": "vpn"
+  }
+]

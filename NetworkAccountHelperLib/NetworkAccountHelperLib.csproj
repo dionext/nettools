@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D7BD60B1-C0EC-46AE-A6A9-EB6DEEC777C1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FrwSoftware</RootNamespace>
+    <AssemblyName>NetworkAccountHelperLib</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.8.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\..\JustProjects\packages\Portable.BouncyCastle.1.8.8\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.49.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\..\JustProjects\packages\Google.Apis.Core.1.49.0\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Core.1.1.0.2\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ObjectListView, Version=2.9.1.25410, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
+      <HintPath>..\packages\ObjectListView.Official.2.9.2-alpha2\lib\net20\ObjectListView.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=3.0.6.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <HintPath>..\packages\DockPanelSuite.3.0.6\lib\net40\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="WinSCPnet, Version=1.7.2.10905, Culture=neutral, PublicKeyToken=2271ec4a3c56d0bf, processorArchitecture=MSIL">
+      <HintPath>..\..\JustProjects\packages\WinSCP.5.17.9\lib\net40\WinSCPnet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Kitty\KittyUtils.cs" />
+    <Compile Include="ListViewImpl\BaseCompResourcesTreeWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ListViewImpl\BaseCompResourcesTreeWindow.Designer.cs">
+      <DependentUpon>BaseCompResourcesTreeWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListViewImpl\JPortMultiEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListViewImpl\JPortMultiEditDialog.Designer.cs">
+      <DependentUpon>JPortMultiEditDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\JCompDevice.cs" />
+    <Compile Include="Model\JCompDeviceNetwork.cs" />
+    <Compile Include="Model\JCompDeviceStorage.cs" />
+    <Compile Include="Model\JDomain.cs" />
+    <Compile Include="Model\JRepository.cs" />
+    <Compile Include="Model\JSite.cs" />
+    <Compile Include="Model\JSoft.cs" />
+    <Compile Include="Model\JSoftInstance.cs" />
+    <Compile Include="Model\JUserAccount.cs" />
+    <Compile Include="NADm.cs" />
+    <Compile Include="NAAppManager.cs" />
+    <Compile Include="NetworkAccountHelperLibLoader.cs" />
+    <Compile Include="NetworkAccountHelperLibRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NetworkAccountHelperLibRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RDP\RDPUtils.cs" />
+    <Compile Include="WinSCP\WinSCPUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Nettools\EmbeddedBrowserControl\EmbeddedBrowserControl.csproj">
+      <Project>{be3ef27c-d753-4ff2-a80c-6e9fa17e5ae7}</Project>
+      <Name>EmbeddedBrowserControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Nettools\VpnSelectorLib\VpnSelectorLib.csproj">
+      <Project>{ba5d89b1-f184-4b1f-a84b-4f1aca1db3ad}</Project>
+      <Name>VpnSelectorLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Nettools\WebAccountLib\WebAccountLib.csproj">
+      <Project>{3d68a794-058f-4f5d-9580-bc7fae38021d}</Project>
+      <Name>WebAccountLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SimpleWinCRUD\FrwSimpleJsonORM\FrwSimpleJsonORM.csproj">
+      <Project>{0a396f66-2b49-4fc6-80e3-2158b9bcc481}</Project>
+      <Name>FrwSimpleJsonORM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SimpleWinCRUD\FrwSimpleWinCRUD\FrwSimpleWinCRUD.csproj">
+      <Project>{dde15dde-672e-4dd2-9336-0bfb6ba02b89}</Project>
+      <Name>FrwSimpleWinCRUD</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ListViewImpl\BaseCompResourcesTreeWindow.resx">
+      <DependentUpon>BaseCompResourcesTreeWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NetworkAccountHelperLibRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>NetworkAccountHelperLibRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NetworkAccountHelperLibRes.ru.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\virtualbox.png" />
+    <None Include="Resources\Images\header1.png" />
+    <None Include="Resources\Images\header.png" />
+    <None Include="Resources\Images\html1.png" />
+    <None Include="Resources\Images\html.png" />
+    <None Include="Resources\Images\trash-full21.png" />
+    <None Include="Resources\Images\fr_storage3.png" />
+    <None Include="Resources\Images\trash-full2.png" />
+    <None Include="Resources\Images\fr_storage2.png" />
+    <None Include="Resources\Images\trash-full1.png" />
+    <None Include="Resources\Images\fr_storage1.png" />
+    <None Include="Resources\Images\trash-full.png" />
+    <None Include="Resources\Images\trash-empty.png" />
+    <None Include="Resources\Images\pencil.png" />
+    <None Include="Resources\Images\paper-plane.png" />
+    <None Include="Resources\Images\junk.png" />
+    <None Include="Resources\Images\inbox.png" />
+    <None Include="Resources\Images\important.png" />
+    <None Include="Resources\Images\archive.png" />
+    <None Include="Resources\Images\folder.png" />
+    <None Include="Resources\Images\fr_actor1.png" />
+    <None Include="Resources\Images\fr_cloud1.png" />
+    <None Include="Resources\Images\fr_cloud2.png" />
+    <None Include="Resources\Images\fr_actor2.png" />
+    <None Include="Resources\Images\fr_cloud3.png" />
+    <None Include="Resources\Images\fr_actor3.png" />
+    <None Include="Resources\fr_webaccount.png" />
+    <None Include="Resources\Images\book_open.png" />
+    <None Include="Resources\Images\folder.gif" />
+    <None Include="Resources\Images\file.png" />
+    <None Include="Resources\Images\catalog.png" />
+    <None Include="Resources\Images\docker.png" />
+    <Content Include="Resources\Images\fr_computer.png" />
+    <None Include="Resources\Images\fr_computer1.png" />
+    <None Include="Resources\Images\fr_hosting1.png" />
+    <None Include="Resources\Images\fr_hosting2.png" />
+    <None Include="Resources\Images\fr_computer2.png" />
+    <None Include="Resources\Images\fr_hosting3.png" />
+    <None Include="Resources\Images\fr_computer3.png" />
+    <Content Include="Resources\Images\fr_mailaccount.png" />
+    <None Include="Resources\Images\fr_mailaccount1.png" />
+    <None Include="Resources\Images\fr_network1.png" />
+    <None Include="Resources\Images\fr_provider1.png" />
+    <None Include="Resources\Images\fr_soft1.png" />
+    <None Include="Resources\Images\fr_soft2.png" />
+    <None Include="Resources\Images\fr_provider2.png" />
+    <None Include="Resources\Images\fr_network2.png" />
+    <None Include="Resources\Images\fr_mailaccount2.png" />
+    <None Include="Resources\Images\fr_soft3.png" />
+    <None Include="Resources\Images\fr_provider3.png" />
+    <None Include="Resources\Images\fr_network3.png" />
+    <None Include="Resources\Images\fr_mailaccount3.png" />
+    <Content Include="Resources\Images\fr_soft_instance.png" />
+    <Content Include="Resources\Images\fr_network.png" />
+    <Content Include="Resources\Images\fr_actor.png" />
+    <Content Include="Resources\Images\fr_provider.png" />
+    <Content Include="Resources\Images\fr_soft.png" />
+    <None Include="Resources\Images\fr_soft_instance1.png" />
+    <None Include="Resources\Images\fr_soft_instance2.png" />
+    <None Include="Resources\Images\fr_soft_instance3.png" />
+    <Content Include="Resources\Images\fr_storage.png" />
+    <Content Include="Resources\Images\fr_hosting.png" />
+    <Content Include="Resources\Images\fr_cloud.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Selenium.Chrome.WebDriver.2.40\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\packages\Selenium.Chrome.WebDriver.2.40\build\Selenium.Chrome.WebDriver.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\WinSCP.5.17.5\build\WinSCP.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\WinSCP.5.17.5\build\WinSCP.targets'))" />
+    <Error Condition="!Exists('..\..\JustProjects\packages\WinSCP.5.17.9\build\WinSCP.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\JustProjects\packages\WinSCP.5.17.9\build\WinSCP.targets'))" />
+  </Target>
+  <Import Project="..\packages\WinSCP.5.17.5\build\WinSCP.targets" Condition="Exists('..\packages\WinSCP.5.17.5\build\WinSCP.targets')" />
+  <Import Project="..\..\JustProjects\packages\WinSCP.5.17.9\build\WinSCP.targets" Condition="Exists('..\..\JustProjects\packages\WinSCP.5.17.9\build\WinSCP.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

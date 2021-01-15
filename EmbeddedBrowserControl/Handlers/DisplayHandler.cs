@@ -26,6 +26,11 @@ namespace EmbeddedBrowser
         private Control parent;
         private Form fullScreenForm;
 
+        public void OnLoadingProgressChange(IWebBrowser chromiumWebBrowser, IBrowser browser, double progress)
+        {
+
+        }
+
         public bool OnAutoResize(IWebBrowser browserControl, IBrowser browser, Size newSize)
         {
             return false;

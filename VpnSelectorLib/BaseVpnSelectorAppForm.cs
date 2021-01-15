@@ -42,7 +42,7 @@ namespace Dionext
 
         protected void CreateVPNSupport()
         {
-            NetConnUtils.InitSettings();
+            VpnConnUtils.InitSettings();
 
             // 
             // vpnButton
@@ -91,25 +91,22 @@ namespace Dionext
             vpnNotifyIcon.ContextMenuStrip.Opening += VpnNotifyIconContextMenuStrip_Opening;
             vpnNotifyIcon.DoubleClick += VpnNotifyIcon_DoubleClick;
 
-            NetConnUtils.OnNetworkChekComplatedEvent += JustNetworkUtils_OnNetworkChekComplatedEvent;
-            NetConnUtils.VpnDisconnectedEvent += VpnSelector_OnVpnDisconnectedEvent;
-            NetConnUtils.VpnConnectedEvent += VpnSelector_OnVpnConnectedEvent;
-            NetConnUtils.VpnDialerErrorEvent += VpnSelector_OnVpnDialerErrorEvent;
+            VpnConnUtils.OnCheckExternalIPAddressComplatedEvent += JustNetworkUtils_OnCheckExternalIPAddressComplatedEvent;
+            VpnConnUtils.VpnDisconnectedEvent += VpnSelector_OnVpnDisconnectedEvent;
+            VpnConnUtils.VpnConnectedEvent += VpnSelector_OnVpnConnectedEvent;
+            VpnConnUtils.VpnDialerErrorEvent += VpnSelector_OnVpnDialerErrorEvent;
 
-            NetConnUtils.CreateDialerAndBeginWatch();
-            bool _isActiveConnectionPresent = NetConnUtils.IsActiveConnectionPresent();
-            if (_isActiveConnectionPresent)
+            VpnConnUtils.CreateDialerAndBeginWatch();
+            if (VpnConnUtils.CurrentVPNServer != null)//checked in InitApplication()
             {
-                NetConnUtils.CurrentProxyServer = BaseProxyServer.FindFromNames(NetConnUtils.GetActiveConnectionsNames());
+                //vpn connection presents before app started
+                if (VpnConnUtils.CurVPNServerChangedEvent != null) VpnConnUtils.CurVPNServerChangedEvent(null, new CurVPNServerChangedEventArgs());
                 ProcessVpnConnectedEvent();
-                //DotRasUtils.CurrentProxyServer = DotRasUtils.CurrentProxyServer;
+
             }
-            else
+            if ((bool)FrwConfig.Instance.GetPropertyValue(VpnConnUtils.SETTING_CHECK_IP_ON_STARTUP, true) == true)
             {
-                if ((bool)FrwConfig.Instance.GetPropertyValue(NetConnUtils.SETTING_CHECK_IP_ON_STARTUP, true) == true)
-                {
-                    NetConnUtils.ConfirmIpAddressAsync();
-                }
+                VpnConnUtils.ConfirmIpAddressAsync();
             }
         }
 
@@ -117,7 +114,7 @@ namespace Dionext
         private void JustAppMainAppForm_Load(object sender, EventArgs e)
         {
         }
-        private void JustNetworkUtils_OnNetworkChekComplatedEvent(object sender, NetworkChekComplatedEventArgs e)
+        private void JustNetworkUtils_OnCheckExternalIPAddressComplatedEvent(object sender, CheckExternalIPAddressComplatedEventArgs e)
         {
             try
             {
@@ -137,11 +134,11 @@ namespace Dionext
         }
         private void ProcessNetworkChekComplatedEvent()
         {
-            if (NetConnUtils.MyExtIPAddressInfo != null)
+            if (VpnConnUtils.MyExtIPAddressInfo != null)
             {
                 ipAddressLabel.Enabled = true;
-                ipAddressLabel.Text = " IP: " + NetConnUtils.MyExtIPAddressInfo.Ip;
-                ipAddressLabel.ToolTipText = Log.PropertyList(NetConnUtils.MyExtIPAddressInfo);
+                ipAddressLabel.Text = " IP: " + VpnConnUtils.MyExtIPAddressInfo.Ip;
+                ipAddressLabel.ToolTipText = Log.PropertyList(VpnConnUtils.MyExtIPAddressInfo);
             }
             else
             {
@@ -155,13 +152,20 @@ namespace Dionext
             try
             {
                 e.Cancel = false;
-                //vpnNotifyIcon.ContextMenuStrip.Items.Clear();
-                vpnNotifyIcon.ContextMenuStrip.Items.Add(new ToolStripSeparator());
+                if (useMainTrayIconForVPN == false)
+                {
+                    vpnNotifyIcon.ContextMenuStrip.Items.Clear();
+                }
+                else
+                {
+                    //MainTrayIcon cleared and filled in BaseApplicationContext
+                    vpnNotifyIcon.ContextMenuStrip.Items.Add(new ToolStripSeparator());
+                }
 
                 List<ToolStripItem> subitems = new List<ToolStripItem>();
-                NetConnUtils.MakeDefaultContextMenu(subitems);
-                NetConnUtils.MakeFavoriteContextMenu(subitems);
-                NetConnUtils.MakeContextMenuForAllBaseProxyServers(subitems);
+                VpnConnUtils.MakeDefaultContextMenu(subitems);
+                VpnConnUtils.MakeFavoriteContextMenu(subitems);
+                VpnConnUtils.MakeContextMenuForAllBaseVPNServers(subitems);
                 vpnNotifyIcon.ContextMenuStrip.Items.AddRange(subitems.ToArray());
             }
             catch (Exception ex)
@@ -173,7 +177,7 @@ namespace Dionext
         {
             try
             {
-                NetConnUtils.ConnectOrDisconnectDefautBaseProxyServerAsync();
+                VpnConnUtils.ConnectOrDisconnectDefautBaseVPNServerAsync();
             }
             catch (Exception ex)
             {
@@ -204,10 +208,10 @@ namespace Dionext
         private void ProcessVpnConnectedEvent()
         {
             this.vpnButton.Enabled = true;
-            if (NetConnUtils.CurrentProxyServer != null && NetConnUtils.CurrentProxyServer.JCountry != null
-            && NetConnUtils.CurrentProxyServer.JCountry.Image != null)
+            if (VpnConnUtils.CurrentVPNServer != null && VpnConnUtils.CurrentVPNServer.JCountry != null
+                && VpnConnUtils.CurrentVPNServer.JCountry.Image != null)
             {
-                string imageName = NetConnUtils.CurrentProxyServer.JCountry.Image;
+                string imageName = VpnConnUtils.CurrentVPNServer.JCountry.Image;
                 Image smallImage = (Image)VpnSelectorLibRes.ResourceManager.GetObject(imageName);
                 //if not found in current assembly do advanced search 
                 if (smallImage == null) smallImage = TypeHelper.FindImageInAllDiskStorages(imageName);
@@ -286,7 +290,7 @@ namespace Dionext
             {
                 try
                 {
-                    NetConnUtils.ConnectOrDisconnectDefautBaseProxyServerAsync();
+                    VpnConnUtils.ConnectOrDisconnectDefautBaseVPNServerAsync();
                 }
                 catch (Exception ex)
                 {

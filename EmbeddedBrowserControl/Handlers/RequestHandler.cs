@@ -20,21 +20,23 @@ using CefSharp.WinForms.Internals;
 
 using CefSharp.WinForms;
 using FrwSoftware;
+using CefSharp.Handler;
 
 namespace EmbeddedBrowser
 {
-    public class RequestHandler : IRequestHandler
+    public class JustRequestHandler : RequestHandler
     {
         protected WebEntryInfo WebEntryInfo { get; set; }
 
         public static readonly string VersionNumberString = String.Format("Chromium: {0}, CEF: {1}, CefSharp: {2}",
             Cef.ChromiumVersion, Cef.CefVersion, Cef.CefSharpVersion);
 
-        bool IRequestHandler.OnBeforeBrowse(IWebBrowser browserControl, IBrowser browser, IFrame frame, IRequest request, bool isRedirect)
+        /*
+        bool IRequestHandler.OnBeforeBrowse(IWebBrowser chromiumWebBrowser, IBrowser browser, IFrame frame, IRequest request, bool userGesture, bool isRedirect)
         {
             return false;
         }
-
+       
         bool IRequestHandler.OnOpenUrlFromTab(IWebBrowser browserControl, IBrowser browser, IFrame frame, string targetUrl, WindowOpenDisposition targetDisposition, bool userGesture)
         {
             return OnOpenUrlFromTab(browserControl, browser, frame, targetUrl, targetDisposition, userGesture);
@@ -66,12 +68,33 @@ namespace EmbeddedBrowser
 
             return false;
         }
+         
         void IRequestHandler.OnPluginCrashed(IWebBrowser browserControl, IBrowser browser, string pluginPath)
         {
             // TODO: Add your own code here for handling scenarios where a plugin crashed, for one reason or another.
         }
-        CefReturnValue IRequestHandler.OnBeforeResourceLoad(IWebBrowser browserControl, IBrowser browser, IFrame frame, IRequest request, IRequestCallback callback)
+        */
+
+        /// <summary>
+        /// Called on the CEF IO thread before a resource request is initiated.
+        /// </summary>
+        /// <param name="chromiumWebBrowser">the ChromiumWebBrowser control</param>
+        /// <param name="browser">represent the source browser of the request</param>
+        /// <param name="frame">represent the source frame of the request</param>
+        /// <param name="request">represents the request contents and cannot be modified in this callback</param>
+        /// <param name="iNavigation">will be true if the resource request is a navigation</param>
+        /// <param name="isDownload">will be true if the resource request is a download</param>
+        /// <param name="requestInitiator">is the origin (scheme + domain) of the page that initiated the request</param>
+        /// <param name="disableDefaultHandling">to true to disable default handling of the request, in which case it will need to be handled via <see cref="IResourceRequestHandler.GetResourceHandler"/> or it will be canceled</param>
+        /// <returns>To allow the resource load to proceed with default handling return null. To specify a handler for the resource return a <see cref="IResourceRequestHandler"/> object. If this callback returns null the same method will be called on the associated <see cref="IRequestContextHandler"/>, if any</returns>
+        /// 
+        /* todo 
+        public override IResourceRequestHandler GetResourceRequestHandler(IWebBrowser browserControl, IBrowser browser, IFrame frame, IRequest request, bool iNavigation, bool isDownload, string requestInitiator, ref bool disableDefaultHandling)
         {
+            //return null;
+        //}
+        //CefReturnValue IRequestHandler.OnBeforeResourceLoad(IWebBrowser browserControl, IBrowser browser, IFrame frame, IRequest request, IRequestCallback callback)
+        //{
             try
             {
                 Uri url;
@@ -98,8 +121,9 @@ namespace EmbeddedBrowser
                         else
                         {
                             //Console.WriteLine("-------Blocked resource: " + request.Url);
-                            callback.Dispose();
-                            return CefReturnValue.Cancel;
+                            disableDefaultHandling = true;
+                            //callback.Dispose();
+                            //return CefReturnValue.Cancel;
                         }
                     }
                     else if (WebEntryInfo.LockIntReqType == LockIntReqType.BLOCK_All_OTHER_DOMAIN)
@@ -116,8 +140,9 @@ namespace EmbeddedBrowser
                             else
                             {
                                 //Console.WriteLine("-------Blocked resource: " + request.Url);
-                                callback.Dispose();
-                                return CefReturnValue.Cancel;
+                                disableDefaultHandling = true;
+                                //callback.Dispose();
+                                //return CefReturnValue.Cancel;
                             }
                         }
                         else
@@ -174,7 +199,8 @@ namespace EmbeddedBrowser
             }
             return CefReturnValue.Continue;
         }
-
+        */
+        /*
         bool IRequestHandler.GetAuthCredentials(IWebBrowser browserControl, IBrowser browser, IFrame frame, bool isProxy, string host, int port, string realm, string scheme, IAuthCallback callback)
         {
             //NOTE: If you do not wish to implement this method returning false is the default behaviour
@@ -197,7 +223,6 @@ namespace EmbeddedBrowser
             callback.Dispose();
             return false;
         }
-
         void IRequestHandler.OnRenderProcessTerminated(IWebBrowser browserControl, IBrowser browser, CefTerminationStatus status)
         {
             Log.LogError("CEFBrowser RenderProcessTerminated");
@@ -305,5 +330,6 @@ namespace EmbeddedBrowser
         {
             return true;
         }
+        */
     }
 }

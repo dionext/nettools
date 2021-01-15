@@ -1,0 +1,183 @@
+﻿[
+  {
+    "JVPNServerId": "2",
+    "Url": "public-vpn-54.opengw.net",
+    "JCountry": {
+      "JCountryId": "jp"
+    },
+    "Town": "Chiyoda",
+    "AvailableProtocols": [
+      "L2TP"
+    ],
+    "EncryptionType": "Require",
+    "SuccessCount": 1,
+    "LastSuccessDate": "2020-05-14T19:01:37.5957208+03:00",
+    "JRunningJob": {
+      "JRunningJobId": "2"
+    },
+    "JVPNProvider": {
+      "JVPNProviderId": "5"
+    }
+  },
+  {
+    "JVPNServerId": "3",
+    "Url": "public-vpn-162.opengw.net",
+    "JCountry": {
+      "JCountryId": "jp"
+    },
+    "Town": "Chiyoda",
+    "AvailableProtocols": [
+      "L2TP"
+    ],
+    "EncryptionType": "Require",
+    "SuccessCount": 1,
+    "LastSuccessDate": "2020-05-14T19:01:59.0115432+03:00",
+    "JRunningJob": {
+      "JRunningJobId": "3"
+    },
+    "JVPNProvider": {
+      "JVPNProviderId": "5"
+    }
+  },
+  {
+    "JVPNServerId": "4",
+    "Url": "public-vpn-43.opengw.net",
+    "JCountry": {
+      "JCountryId": "jp"
+    },
+    "Town": "Chiyoda",
+    "AvailableProtocols": [
+      "L2TP"
+    ],
+    "EncryptionType": "Require",
+    "Favorite": true,
+    "SuccessCount": 1,
+    "LastSuccessDate": "2020-05-14T19:02:19.6057563+03:00",
+    "JRunningJob": {
+      "JRunningJobId": "4"
+    },
+    "JVPNProvider": {
+      "JVPNProviderId": "5"
+    }
+  },
+  {
+    "JVPNServerId": "5",
+    "Url": "public-vpn-153.opengw.net",
+    "JCountry": {
+      "JCountryId": "jp"
+    },
+    "Town": "Chiyoda",
+    "AvailableProtocols": [
+      "L2TP"
+    ],
+    "EncryptionType": "Require",
+    "SuccessCount": 1,
+    "LastSuccessDate": "2020-05-14T19:02:43.0156032+03:00",
+    "JRunningJob": {
+      "JRunningJobId": "5"
+    },
+    "JVPNProvider": {
+      "JVPNProviderId": "5"
+    }
+  },
+  {
+    "JVPNServerId": "6",
+    "Url": "public-vpn-197.opengw.net",
+    "JCountry": {
+      "JCountryId": "jp"
+    },
+    "Town": "Chiyoda",
+    "AvailableProtocols": [
+      "L2TP"
+    ],
+    "EncryptionType": "Require",
+    "SuccessCount": 1,
+    "LastSuccessDate": "2020-05-14T19:03:01.9430299+03:00",
+    "JRunningJob": {
+      "JRunningJobId": "6"
+    },
+    "JVPNProvider": {
+      "JVPNProviderId": "5"
+    }
+  },
+  {
+    "JVPNServerId": "7",
+    "Url": "public-vpn-172.opengw.net",
+    "JCountry": {
+      "JCountryId": "jp"
+    },
+    "Town": "Chiyoda",
+    "AvailableProtocols": [
+      "L2TP"
+    ],
+    "EncryptionType": "Require",
+    "SuccessCount": 1,
+    "LastSuccessDate": "2020-05-14T19:03:48.4135599+03:00",
+    "JRunningJob": {
+      "JRunningJobId": "7"
+    },
+    "JVPNProvider": {
+      "JVPNProviderId": "5"
+    }
+  },
+  {
+    "JVPNServerId": "8",
+    "Url": "public-vpn-200.opengw.net",
+    "JCountry": {
+      "JCountryId": "jp"
+    },
+    "Town": "Chiyoda",
+    "AvailableProtocols": [
+      "L2TP"
+    ],
+    "EncryptionType": "Require",
+    "SuccessCount": 1,
+    "LastSuccessDate": "2020-05-14T19:04:10.7775127+03:00",
+    "JRunningJob": {
+      "JRunningJobId": "8"
+    },
+    "JVPNProvider": {
+      "JVPNProviderId": "5"
+    }
+  },
+  {
+    "JVPNServerId": "22",
+    "Url": "rspnet-jp1.opengw.net",
+    "JCountry": {
+      "JCountryId": "jp"
+    },
+    "Town": "Omitama",
+    "AvailableProtocols": [
+      "L2TP"
+    ],
+    "EncryptionType": "Require",
+    "SuccessCount": 1,
+    "LastSuccessDate": "2020-05-14T19:06:54.7149549+03:00",
+    "JRunningJob": {
+      "JRunningJobId": "22"
+    },
+    "JVPNProvider": {
+      "JVPNProviderId": "5"
+    }
+  },
+  {
+    "JVPNServerId": "23",
+    "Url": "vpn642926490.opengw.net",
+    "JCountry": {
+      "JCountryId": "kr"
+    },
+    "Town": "Seoul",
+    "AvailableProtocols": [
+      "L2TP"
+    ],
+    "EncryptionType": "Require",
+    "SuccessCount": 1,
+    "LastSuccessDate": "2020-05-14T19:07:13.5271251+03:00",
+    "JRunningJob": {
+      "JRunningJobId": "23"
+    },
+    "JVPNProvider": {
+      "JVPNProviderId": "5"
+    }
+  }
+]

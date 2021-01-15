@@ -194,11 +194,13 @@
   </data>
   <data name="Active_VPN_connection_found____" xml:space="preserve">
     <value>Active VPN connection found.
- </value>
+
+ </value>
   </data>
   <data name="__Press_OK_to_close_it_and_connect_to_selected_VPN_server_" xml:space="preserve">
     <value>
-Press OK to close it and connect to selected VPN server.</value>
+
+Press OK to close it and connect to selected VPN server.</value>
   </data>
   <data name="Warning_" xml:space="preserve">
     <value>Warning!</value>
@@ -215,91 +217,91 @@
   <data name="Non_PPTP_no_L2TP_protocols_available_for_this_vpn_entry" xml:space="preserve">
     <value>Non PPTP no L2TP protocols available for this vpn entry</value>
   </data>
-  <data name="BaseProxyProvider" xml:space="preserve">
+  <data name="BaseVPNProvider" xml:space="preserve">
     <value>VPN provider</value>
   </data>
-  <data name="BaseProxyProvider_JProxyProviderId" xml:space="preserve">
+  <data name="BaseVPNProvider_JVPNProviderId" xml:space="preserve">
     <value>Identifier</value>
   </data>
-  <data name="BaseProxyProvider_Name" xml:space="preserve">
+  <data name="BaseVPNProvider_Name" xml:space="preserve">
     <value>Name</value>
   </data>
-  <data name="BaseProxyProvider_URL" xml:space="preserve">
+  <data name="BaseVPNProvider_URL" xml:space="preserve">
     <value>URL</value>
   </data>
-  <data name="BaseProxyProvider_Login" xml:space="preserve">
-    <value>Login</value>
+  <data name="BaseVPNProvider_Login" xml:space="preserve">
+    <value>Login. For access to provider web site.</value>
   </data>
-  <data name="BaseProxyProvider_Password" xml:space="preserve">
-    <value>Password</value>
+  <data name="BaseVPNProvider_Password" xml:space="preserve">
+    <value>Password. For access to provider web site.</value>
   </data>
-  <data name="BaseProxyProvider_VPNLogin" xml:space="preserve">
-    <value>VPN login</value>
+  <data name="BaseVPNProvider_VPNLogin" xml:space="preserve">
+    <value>VPN login. For VPN connection</value>
   </data>
-  <data name="BaseProxyProvider_VPNPassword" xml:space="preserve">
-    <value>VPN password</value>
+  <data name="BaseVPNProvider_VPNPassword" xml:space="preserve">
+    <value>VPN password. For VPN connection</value>
   </data>
-  <data name="BaseProxyProvider_UserPresharedKey" xml:space="preserve">
-    <value>User Preshared Key</value>
+  <data name="BaseVPNProvider_UserPresharedKey" xml:space="preserve">
+    <value>PSK.  Pre-shared key</value>
   </data>
-  <data name="BaseProxyProvider_SecLevel" xml:space="preserve">
+  <data name="BaseVPNProvider_SecLevel" xml:space="preserve">
     <value>Security level</value>
   </data>
-  <data name="BaseProxyProvider_Info" xml:space="preserve">
+  <data name="BaseVPNProvider_Info" xml:space="preserve">
     <value>Information</value>
   </data>
-  <data name="BaseProxyProvider_Attachments" xml:space="preserve">
+  <data name="BaseVPNProvider_Attachments" xml:space="preserve">
     <value>Attachments</value>
   </data>
-  <data name="BaseProxyServer" xml:space="preserve">
+  <data name="BaseVPNServer" xml:space="preserve">
     <value>VPN server</value>
   </data>
-  <data name="BaseProxyServer_JProxyServerId" xml:space="preserve">
+  <data name="BaseVPNServer_JVPNServerId" xml:space="preserve">
     <value>Identifier</value>
   </data>
-  <data name="BaseProxyServer_Url" xml:space="preserve">
+  <data name="BaseVPNServer_Url" xml:space="preserve">
     <value>URL</value>
   </data>
-  <data name="BaseProxyServer_JCountry" xml:space="preserve">
+  <data name="BaseVPNServer_JCountry" xml:space="preserve">
     <value>Country</value>
   </data>
-  <data name="BaseProxyServer_JCountryDeclared" xml:space="preserve">
+  <data name="BaseVPNServer_JCountryDeclared" xml:space="preserve">
     <value>Country(declared)</value>
   </data>
-  <data name="BaseProxyServer_Town" xml:space="preserve">
+  <data name="BaseVPNServer_Town" xml:space="preserve">
     <value>Town</value>
   </data>
-  <data name="BaseProxyServer_TownDeclared" xml:space="preserve">
+  <data name="BaseVPNServer_TownDeclared" xml:space="preserve">
     <value>Town (declared)</value>
   </data>
-  <data name="BaseProxyServer_AvailableProtocols" xml:space="preserve">
+  <data name="BaseVPNServer_AvailableProtocols" xml:space="preserve">
     <value>Available protocols</value>
   </data>
-  <data name="BaseProxyServer_EncryptionType" xml:space="preserve">
+  <data name="BaseVPNServer_EncryptionType" xml:space="preserve">
     <value>Encryption Type</value>
   </data>
-  <data name="BaseProxyServer_Favorite" xml:space="preserve">
+  <data name="BaseVPNServer_Favorite" xml:space="preserve">
     <value>Favorite</value>
   </data>
-  <data name="BaseProxyServer_ErrorCount" xml:space="preserve">
+  <data name="BaseVPNServer_ErrorCount" xml:space="preserve">
     <value>Error connections count</value>
   </data>
-  <data name="BaseProxyServer_SuccessCount" xml:space="preserve">
+  <data name="BaseVPNServer_SuccessCount" xml:space="preserve">
     <value>Success connections count</value>
   </data>
-  <data name="BaseProxyServer_LastErrorDate" xml:space="preserve">
+  <data name="BaseVPNServer_LastErrorDate" xml:space="preserve">
     <value>Last error connection date</value>
   </data>
-  <data name="BaseProxyServer_LastSuccessDate" xml:space="preserve">
+  <data name="BaseVPNServer_LastSuccessDate" xml:space="preserve">
     <value>Last success connection date</value>
   </data>
-  <data name="BaseProxyServer_IsArchive" xml:space="preserve">
+  <data name="BaseVPNServer_IsArchived" xml:space="preserve">
     <value>Archived</value>
   </data>
-  <data name="BaseProxyServer_Stage" xml:space="preserve">
-    <value>Stage of testing job</value>
+  <data name="BaseVPNServer_Stage" xml:space="preserve">
+    <value>Testing stage. During user testing, this VPN connection shows its stage.</value>
   </data>
-  <data name="FProxyProvider_JProxyProvider" xml:space="preserve">
+  <data name="FVPNProvider_JVPNProvider" xml:space="preserve">
     <value>VPN provider</value>
   </data>
   <data name="VPN_selector" xml:space="preserve">

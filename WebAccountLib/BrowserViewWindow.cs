@@ -32,14 +32,9 @@ namespace Dionext
         {
             InitializeComponent();
         }
-        override public void ProcessView()
+        static public  void CreateCefBrowser(BrowserPrivateType BrowserPrivateType, object LinkedObject, string WebEntityInfoPropertyName, string FileFullPath,  ref UserControl viewControl)
         {
-            //if (viewControl != null) throw new InvalidOperationException();
-            //if (viewProcessed) throw new InvalidOperationException();
-            //else viewProcessed = true;
-
             WebEntryInfo webEntryInfo = null;
-            //WebEntryInfo webEntryInfo = WebEntryInfo.GetWebEntryInfoFromObject(LinkedObject);
             if (LinkedObject != null)
             {
                 IList<WebEntryInfoWrap> webEntryInfos = WebEntryInfo.GetWebEntryInfosFromObject(LinkedObject);
@@ -58,6 +53,57 @@ namespace Dionext
                     webEntryInfo = webEntryInfos[0].WebEntryInfo;
                 }
             }
+            else
+            {
+                webEntryInfo = new WebEntryInfo();
+            }
+            //if (viewControl == null || !(viewControl is EmbeddedBrowserControl))
+            //{
+                webEntryInfo.BrowserPrivateType = BrowserPrivateType;
+            if (BrowserPrivateType == BrowserPrivateType.PERSONAL_OLD_DISK_CACHE 
+                //|| BrowserPrivateType == BrowserPrivateType.PERSONAL_NEW_DISK_CACHE
+                )
+            {
+                string path = null;
+                
+                JActor actor = null;
+
+                if (LinkedObject != null)
+                {
+
+                    var pl = LinkedObject.GetType().GetProperties();
+                    Type at = typeof(JActor);
+                    foreach (var p in pl)
+                    {
+                        if (p.PropertyType == at)
+                        {
+                            actor = AttrHelper.GetPropertyValue(LinkedObject, p) as JActor;
+                            break;
+                        }
+                    }
+                }
+                //PropertyInfo actorProperty = AttrHelper.GetProperty(typeof(JActor), LinkedObject.GetType());
+                //if (actorProperty != null) actor = AttrHelper.GetPropertyValue(LinkedObject, actorProperty) as JActor;
+                if (actor != null)
+                {
+                    path = Dm.Instance.GetCacheFullPathForObjectUniqueForCompAndUser(actor);
+                }
+                else
+                {
+                    path = Dm.Instance.GetCacheFullPathForObjectUniqueForCompAndUser(LinkedObject);
+                }
+                webEntryInfo.CachePath = path;
+            }
+            else if (BrowserPrivateType == BrowserPrivateType.COMMON_CACHE)
+            {
+                string path = Dm.Instance.GetBrowserCommonCachePathUniqueForCompAndUser();
+                webEntryInfo.CachePath = path;
+            }
+            viewControl = new EmbeddedBrowserControl(FileFullPath, webEntryInfo, EmbeddedBrowserHelper.MultiThreadedMessageLoop);
+        }
+
+        override public void ProcessView()
+        {
             if (viewType != ViewType.NONE)
             {
                 bool newControlCreated = false;
@@ -65,19 +111,7 @@ namespace Dionext
                 {
                     if (viewControl == null || !(viewControl is EmbeddedBrowserControl))
                     {
-                        webEntryInfo.BrowserPrivateType = BrowserPrivateType;
-                        if (BrowserPrivateType == BrowserPrivateType.PERSONAL_OLD_DISK_CACHE ||
-                            BrowserPrivateType == BrowserPrivateType.PERSONAL_NEW_DISK_CACHE)
-                        {
-                            string path = Dm.Instance.GetCacheFullPathForObject(LinkedObject);
-                            webEntryInfo.CachePath = path;
-                        }
-                        else if (BrowserPrivateType == BrowserPrivateType.COMMON_CACHE)
-                        {
-                            string path = Path.Combine(Dm.Instance.GetCommonCachePath(), EmbeddedBrowserHelper.BROWSER_CACHE_PATH);
-                            webEntryInfo.CachePath = path;
-                        }
-                        viewControl = new EmbeddedBrowserControl(FileFullPath, webEntryInfo, true);
+                        CreateCefBrowser(BrowserPrivateType, LinkedObject, WebEntityInfoPropertyName, FileFullPath, ref viewControl);
                         newControlCreated = true;
                     }
                 }

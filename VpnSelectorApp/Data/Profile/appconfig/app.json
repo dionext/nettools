@@ -23,8 +23,8 @@
     "IsUser": true
   },
   {
-    "Name": "MainApp.DefaultProxyServer",
-    "ValueTypeName": "Dionext.FProxyServer",
+    "Name": "MainApp.DefaultVPNServer",
+    "ValueTypeName": "Dionext.JVPNServer",
     "Description": "VPN server by default",
     "Group": "VPN",
     "IsUser": true
